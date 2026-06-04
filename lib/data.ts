@@ -17,41 +17,41 @@ export interface Update {
 }
 
 export const teamMembers: TeamMember[] = [
-  {
-    id: 1,
-    name: 'Alex Johnson',
-    role: 'Project Lead & Hardware Lead',
-    bio: 'Specializes in robotics hardware design and integration',
-    image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Alex',
-  },
-  {
-    id: 2,
-    name: 'Sarah Chen',
-    role: 'Software Lead & AI Integration',
-    bio: 'Expert in machine learning and computer vision',
-    image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah',
-  },
-  {
-    id: 3,
-    name: 'Michael Rodriguez',
-    role: 'Mechanical Engineering',
-    bio: 'Designs irrigation system components and chassis',
-    image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Michael',
-  },
-  {
-    id: 4,
-    name: 'Emma Thompson',
-    role: 'Systems Integration & Testing',
-    bio: 'Ensures all subsystems work seamlessly together',
-    image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Emma',
-  },
-  {
-    id: 5,
-    name: 'David Kim',
-    role: 'Documentation & Simulation',
-    bio: 'Creates documentation and simulation environments',
-    image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=David',
-  },
+{
+  id: 1,
+  name: 'Akhi Ketu Chakma',
+  role: 'Project Lead & Research',
+  bio: 'Works on project planning, research papers, proposal writing, and overall project coordination.',
+  image: '/team/AkhiKetu.jpg',
+},
+{
+  id: 2,
+  name: 'Zawad Abdullah',
+  role: 'Hardware & Circuit Design',
+  bio: 'Works on component selection, circuit connection, ESP32 setup, sensors, motor driver, and power system.',
+  image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Zawad',
+},
+{
+  id: 3,
+  name: 'Muhammad Shajalal Sojib',
+  role: 'Software & IoT Dashboard',
+  bio: 'Works on ESP32 programming, IoT dashboard, sensor data processing, and pump control logic.',
+  image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sojib',
+},
+{
+  id: 4,
+  name: 'Abdul Gaffar',
+  role: 'Robotics & Testing',
+  bio: 'Works on rover movement, obstacle avoidance, motor testing, chassis setup, and system integration.',
+  image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Gaffar',
+},
+{
+  id: 5,
+  name: 'Ashibul Islam Ashif',
+  role: 'Documentation & Presentation',
+  bio: 'Works on documentation, presentation slides, website content, testing records, and final report support.',
+  image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Ashif',
+},
 ];
 
 export const updates: Update[] = [

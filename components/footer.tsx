@@ -34,7 +34,7 @@ export function Footer() {
             <h3 className="font-semibold text-foreground mb-4">Project Info</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>Robotics Course Project</li>
-              <li>Semester: Spring 2024</li>
+              <li>Semester: Summer 2026</li>
               <li>5-Member Development Team</li>
               <li>Advanced Autonomous Systems</li>
             </ul>
