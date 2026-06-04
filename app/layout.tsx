@@ -1,18 +1,14 @@
 import { Analytics } from '@vercel/analytics/next'
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 
 export const metadata: Metadata = {
   title: 'Smart Irrigation Rover | Robotics Course Project',
-  description: 'An intelligent autonomous rover for adaptive garden irrigation through advanced soil sensing and precision spot watering',
+  description:
+    'An autonomous smart irrigation rover for adaptive spot watering using soil moisture sensing, obstacle detection, IoT monitoring, and precision irrigation.',
   generator: 'v0.app',
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-  },
   icons: {
     icon: [
       {
@@ -32,6 +28,12 @@ export const metadata: Metadata = {
   },
 }
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -39,11 +41,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="bg-background">
-      <body className="font-sans antialiased flex flex-col min-h-screen">
+      <body className="font-sans antialiased flex min-h-screen flex-col">
         <Navbar />
-        <main className="flex-1">
-          {children}
-        </main>
+        <main className="flex-1">{children}</main>
         <Footer />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

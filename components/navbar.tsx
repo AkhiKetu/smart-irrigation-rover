@@ -14,26 +14,32 @@ export function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-background border-b border-border shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 bg-gradient-to-br from-teal-500 to-emerald-600 rounded-lg flex items-center justify-center">
+    <nav className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
+      <div className="w-full px-4 sm:px-6 lg:px-10 xl:px-14">
+        <div className="flex h-16 items-center justify-between">
+          {/* Left Logo */}
+          <Link href="/" className="flex items-center gap-3 group min-w-0">
+            <div className="shrink-0 w-10 h-10 bg-gradient-to-br from-teal-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-md">
               <span className="text-white font-bold text-sm">SIR</span>
             </div>
-            <span className="font-bold text-lg hidden sm:inline text-foreground group-hover:text-emerald-600 transition-colors">
-              Smart Irrigation Rover
-            </span>
+
+            <div className="flex flex-col leading-tight min-w-0">
+              <span className="font-bold text-base sm:text-lg text-foreground group-hover:text-emerald-600 transition-colors truncate">
+                Smart Irrigation Rover
+              </span>
+              <span className="hidden sm:block text-xs text-muted-foreground">
+                Adaptive Spot Watering
+              </span>
+            </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          {/* Right Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-2 lg:gap-4">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-sm font-medium text-foreground hover:text-emerald-600 transition-colors"
+                className="px-4 py-2 rounded-lg text-sm font-medium text-foreground hover:text-emerald-600 hover:bg-emerald-500/10 transition-all"
               >
                 {item.name}
               </Link>
@@ -43,10 +49,11 @@ export function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-foreground hover:bg-muted"
+            className="md:hidden inline-flex items-center justify-center p-2 rounded-lg text-foreground hover:bg-muted border border-border"
+            aria-label="Toggle navigation menu"
           >
             <svg
-              className={`w-6 h-6 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+              className="w-6 h-6"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -63,17 +70,19 @@ export function Navbar() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden pb-4 pt-2 space-y-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-muted"
-                onClick={() => setIsOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
+          <div className="md:hidden border-t border-border py-4">
+            <div className="flex flex-col gap-2">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="block px-4 py-3 rounded-lg text-base font-medium text-foreground hover:bg-emerald-500/10 hover:text-emerald-600 transition-all"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
           </div>
         )}
       </div>

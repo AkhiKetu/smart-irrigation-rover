@@ -1,7 +1,26 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { projectVision, projectGoals } from '@/lib/data';
 
+const roverImages = [
+  '/Bots/Rover-1.png',
+  '/Bots/Rover-2.png',
+  '/Bots/Rover-3.png',
+];
+
 export default function Home() {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % roverImages.length);
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="bg-background text-foreground">
       {/* Hero Section */}
@@ -9,17 +28,21 @@ export default function Home() {
         {/* Background gradient effect */}
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-teal-500/10 pointer-events-none" />
 
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
+        <div className="relative z-10 max-w-5xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 mb-6 bg-emerald-500/10 px-4 py-2 rounded-full border border-emerald-500/20">
             <span className="text-sm font-medium text-emerald-600">Robotics Course Project</span>
           </div>
 
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 text-balance">
-            Smart Irrigation <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-600">Rover</span>
+            Smart Irrigation{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-600">
+              Rover
+            </span>
           </h1>
 
           <p className="text-xl sm:text-2xl text-muted-foreground mb-8 text-balance leading-relaxed">
-            An intelligent autonomous system that combines advanced robotics, AI-powered soil sensing, and precision irrigation to deliver water exactly where plants need it.
+            An autonomous smart irrigation rover designed with soil moisture sensing, obstacle detection,
+            IoT monitoring, and adaptive spot watering to supply water only where it is needed.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -37,21 +60,28 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="relative h-64 sm:h-80 bg-muted rounded-xl border border-border/50 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-t from-emerald-500/20 via-transparent to-transparent" />
-            <svg
-              className="w-full h-full text-muted-foreground/30"
-              fill="none"
-              viewBox="0 0 400 300"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {/* Simple rover illustration */}
-              <rect x="120" y="120" width="160" height="80" rx="4" fill="none" stroke="currentColor" strokeWidth="2" />
-              <circle cx="150" cy="200" r="20" fill="none" stroke="currentColor" strokeWidth="2" />
-              <circle cx="250" cy="200" r="20" fill="none" stroke="currentColor" strokeWidth="2" />
-              <rect x="140" y="100" width="120" height="25" rx="3" fill="none" stroke="currentColor" strokeWidth="2" />
-              <circle cx="200" cy="90" r="8" fill="none" stroke="currentColor" strokeWidth="2" />
-            </svg>
+          {/* Rover Image Slider */}
+          <div className="relative mx-auto mt-6 max-w-3xl h-[420px] overflow-hidden rounded-2xl border border-border/60 bg-white shadow-2xl flex items-center justify-center">
+            <div className="absolute inset-0 bg-gradient-to-t from-emerald-500/10 via-transparent to-transparent pointer-events-none z-10" />
+
+            <img
+              src={roverImages[currentImage]}
+              alt="Smart Irrigation Rover 3D Model"
+              className="h-full w-auto object-contain transition-all duration-700"
+            />
+
+            <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-20">
+              {roverImages.map((_, index) => (
+                <span
+                  key={index}
+                  className={`h-2.5 w-2.5 rounded-full transition-all duration-300 ${
+                    currentImage === index
+                      ? 'bg-emerald-500 w-6'
+                      : 'bg-gray-300'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -118,16 +148,16 @@ export default function Home() {
               <p className="text-sm text-muted-foreground">Team Members</p>
             </div>
             <div className="bg-card border border-border rounded-lg p-6">
-              <div className="text-3xl font-bold text-emerald-600 mb-2">15+</div>
-              <p className="text-sm text-muted-foreground">Weeks Duration</p>
+              <div className="text-3xl font-bold text-emerald-600 mb-2">50</div>
+              <p className="text-sm text-muted-foreground">Research Papers</p>
             </div>
             <div className="bg-card border border-border rounded-lg p-6">
-              <div className="text-3xl font-bold text-emerald-600 mb-2">5</div>
-              <p className="text-sm text-muted-foreground">Key Goals</p>
+              <div className="text-3xl font-bold text-emerald-600 mb-2">4WD</div>
+              <p className="text-sm text-muted-foreground">Rover Platform</p>
             </div>
             <div className="bg-card border border-border rounded-lg p-6">
-              <div className="text-3xl font-bold text-emerald-600 mb-2">100%</div>
-              <p className="text-sm text-muted-foreground">Autonomous</p>
+              <div className="text-3xl font-bold text-emerald-600 mb-2">IoT</div>
+              <p className="text-sm text-muted-foreground">Monitoring</p>
             </div>
           </div>
         </div>
