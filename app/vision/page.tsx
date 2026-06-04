@@ -88,7 +88,7 @@ const mainCards = [
     title: 'Components',
     subtitle: 'Hardware used in the rover',
     icon: '',
-    image: '/VisionAndGoals/Components.png',
+    image: '/VisionAndGoals/components.png',
   },
   {
     id: 'roadmap',
