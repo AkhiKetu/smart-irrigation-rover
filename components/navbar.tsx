@@ -19,9 +19,11 @@ export function Navbar() {
         <div className="flex h-16 items-center justify-between">
           {/* Left Logo */}
           <Link href="/" className="flex items-center gap-3 group min-w-0">
-            <div className="shrink-0 w-10 h-10 bg-gradient-to-br from-teal-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-md">
-              <span className="text-white font-bold text-sm">SIR</span>
-            </div>
+            <img
+  src="/IconWeb.png"
+  alt="Smart Irrigation Rover Logo"
+  className="h-11 w-11 rounded-xl object-cover shadow-md"
+/>
 
             <div className="flex flex-col leading-tight min-w-0">
               <span className="font-bold text-base sm:text-lg text-foreground group-hover:text-emerald-600 transition-colors truncate">
