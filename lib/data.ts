@@ -147,8 +147,8 @@ export const updates: Update[] = [
   },
 ];
 
-export const projectVision = 'Create an intelligent, autonomous irrigation system that adapts to plant needs in real-time, reducing water waste while maximizing plant health through precision spot watering.';
-
+export const projectVision =
+  'Our vision is to build a low-cost smart irrigation rover that can support farmers by making watering more accurate, automatic, and efficient. Instead of watering the whole field, the rover checks soil moisture at different spots and supplies water only where the soil is dry. By combining sensors, ESP32 control, obstacle detection, IoT monitoring, and adaptive decision logic, this project shows how robotics can be used in precision agriculture to reduce water waste, save time, and make irrigation smarter for the future.';
 export const projectGoals = [
   {
     title: 'Autonomous Navigation',
