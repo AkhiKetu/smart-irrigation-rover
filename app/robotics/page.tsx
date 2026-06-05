@@ -6,7 +6,7 @@ const robotTypes = [
   {
     id: 'industrial',
     title: 'Industrial Robots',
-    image: '/Robotics/industrialRobot-KUKA.jpg',
+    image: '/Robotics/IndustrialRobot-KUKA.jpg',
     company: 'Universal Robots, ABB, FANUC, KUKA',
     example: 'Universal Robots UR cobots, FANUC robotic arms',
     short: 'Factory robots used for welding, assembly, packaging, and production.',
