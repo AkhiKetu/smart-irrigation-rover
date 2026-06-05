@@ -16,16 +16,14 @@ export default function Home() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % roverImages.length);
-    }, 5000); // Change image every 5 seconds
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="bg-background text-foreground">
-      {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 sm:px-6 lg:px-8">
-        {/* Background gradient effect */}
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-teal-500/10 pointer-events-none" />
 
         <div className="relative z-10 max-w-5xl mx-auto text-center">
@@ -52,6 +50,14 @@ export default function Home() {
             >
               Meet the Team
             </Link>
+
+            <Link
+              href="/robotics"
+              className="px-8 py-3 rounded-lg bg-emerald-500/10 text-emerald-700 font-semibold hover:bg-emerald-500/20 transition-all border border-emerald-500/30"
+            >
+              About Robotics
+            </Link>
+
             <Link
               href="/updates"
               className="px-8 py-3 rounded-lg bg-muted text-foreground font-semibold hover:bg-muted/80 transition-all border border-border"
@@ -60,7 +66,6 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Rover Image Slider */}
           <div className="relative mx-auto mt-6 max-w-3xl h-[420px] overflow-hidden rounded-2xl border border-border/60 bg-white shadow-2xl flex items-center justify-center">
             <div className="absolute inset-0 bg-gradient-to-t from-emerald-500/10 via-transparent to-transparent pointer-events-none z-10" />
 
@@ -75,9 +80,7 @@ export default function Home() {
                 <span
                   key={index}
                   className={`h-2.5 w-2.5 rounded-full transition-all duration-300 ${
-                    currentImage === index
-                      ? 'bg-emerald-500 w-6'
-                      : 'bg-gray-300'
+                    currentImage === index ? 'bg-emerald-500 w-6' : 'bg-gray-300'
                   }`}
                 />
               ))}
@@ -86,7 +89,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Vision Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
@@ -102,7 +104,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Quick Goals Preview */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
@@ -139,7 +140,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/50">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">

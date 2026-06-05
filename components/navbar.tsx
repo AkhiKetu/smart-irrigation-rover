@@ -11,6 +11,7 @@ export function Navbar() {
     { name: 'Team', href: '/team' },
     { name: 'Vision & Goals', href: '/vision' },
     { name: 'Updates', href: '/updates' },
+    { name: 'Robotics', href: '/robotics' },
   ];
 
   return (
