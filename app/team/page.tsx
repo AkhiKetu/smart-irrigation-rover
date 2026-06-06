@@ -37,11 +37,11 @@ export default function TeamPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="text-4xl font-bold text-emerald-600 mb-2">5</div>
-              <p className="text-muted-foreground">Specialized Engineers</p>
+              <p className="text-muted-foreground">Team Members</p>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-emerald-600 mb-2">3</div>
-              <p className="text-muted-foreground">Engineering Disciplines</p>
+              <p className="text-muted-foreground">Core Technologies</p>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-emerald-600 mb-2">100%</div>
@@ -58,33 +58,25 @@ export default function TeamPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-card border border-border rounded-lg p-6">
-              <div className="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-4">
-                <span className="text-2xl">🚀</span>
-              </div>
+      
               <h3 className="text-lg font-semibold text-foreground mb-2">Innovation</h3>
               <p className="text-sm text-muted-foreground">Pushing boundaries with creative solutions</p>
             </div>
 
             <div className="bg-card border border-border rounded-lg p-6">
-              <div className="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-4">
-                <span className="text-2xl">🤝</span>
-              </div>
+              
               <h3 className="text-lg font-semibold text-foreground mb-2">Collaboration</h3>
               <p className="text-sm text-muted-foreground">Working together towards shared goals</p>
             </div>
 
             <div className="bg-card border border-border rounded-lg p-6">
-              <div className="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-4">
-                <span className="text-2xl">🎯</span>
-              </div>
+              
               <h3 className="text-lg font-semibold text-foreground mb-2">Excellence</h3>
               <p className="text-sm text-muted-foreground">Delivering quality in everything we do</p>
             </div>
 
             <div className="bg-card border border-border rounded-lg p-6">
-              <div className="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-4">
-                <span className="text-2xl">🌱</span>
-              </div>
+              
               <h3 className="text-lg font-semibold text-foreground mb-2">Sustainability</h3>
               <p className="text-sm text-muted-foreground">Building solutions for a better future</p>
             </div>

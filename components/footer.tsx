@@ -67,14 +67,6 @@ export function Footer() {
                   Robotics
                 </a>
               </li>
-              <li>
-                <a
-                  href="/contact"
-                  className="hover:text-emerald-600 transition-colors"
-                >
-                  Contact
-                </a>
-              </li>
             </ul>
           </div>
 
