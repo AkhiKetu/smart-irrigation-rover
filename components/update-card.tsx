@@ -1,4 +1,11 @@
-import type { Update } from '@/lib/data';
+interface Update {
+  title: string;
+  date: string;
+  category: 'lecture' | 'research';
+  week: number;
+  description: string;
+  content: string;
+}
 
 interface UpdateCardProps {
   update: Update;
