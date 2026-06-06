@@ -59,6 +59,22 @@ export function Footer() {
                   Updates
                 </a>
               </li>
+              <li>
+                <a
+                  href="/robotics"
+                  className="hover:text-emerald-600 transition-colors"
+                >
+                  Robotics
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/contact"
+                  className="hover:text-emerald-600 transition-colors"
+                >
+                  Contact
+                </a>
+              </li>
             </ul>
           </div>
 
