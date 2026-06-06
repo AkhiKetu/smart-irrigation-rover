@@ -223,12 +223,12 @@ export default function RoboticsPage() {
             <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-5">
               How Robotics Connects to Smart Irrigation
             </h2>
-            <p className="text-muted-foreground leading-relaxed mb-5">
+            <p className="text-muted-foreground leading-relaxed mb-5 text-justify">
               The Smart Irrigation Rover is a mobile agricultural robot. It senses soil moisture,
               checks environmental conditions, avoids obstacles, moves using a 4WD platform, and
               activates a water pump only when irrigation is needed.
             </p>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed text-justify">
               This follows the robotics workflow: collect data from sensors, process it using a
               controller, make a decision, and perform an action through motors and actuators.
             </p>
@@ -390,7 +390,7 @@ function InfoBox({ title, text }: { title: string; text: string }) {
   return (
     <div className="rounded-2xl bg-muted/50 border border-border p-5">
       <h3 className="font-bold text-emerald-600 mb-2">{title}</h3>
-      <p className="text-sm text-muted-foreground leading-relaxed">{text}</p>
+      <p className="text-sm text-muted-foreground leading-relaxed text-justify">{text}</p>
     </div>
   );
 }
