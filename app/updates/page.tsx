@@ -219,6 +219,246 @@ const akhiPapers = [
       'This paper connects with mobile robotics, motor control, obstacle handling, and autonomous movement concepts.',
   },
 ];
+const zawadPapers =[
+  {
+    title: 'An Overview of Smart Irrigation Systems Using IoT',
+    year: '2022',
+    source: 'Energy Nexus',
+    link: 'https://www.sciencedirect.com/science/article/pii/S2589721722000010',
+    summary:
+      'This paper reviews modern IoT-based smart irrigation systems that use soil moisture sensors, wireless communication, and cloud monitoring. It directly supports our Smart Irrigation Rover by explaining how sensor data can automate watering decisions and improve water-use efficiency.',
+  },
+
+  {
+    title: 'Artificial Intelligence and IoT for Sustainable Agriculture',
+    year: '2024',
+    source: 'Ain Shams Engineering Journal',
+    link: 'https://www.sciencedirect.com/science/article/pii/S1658077X24000110',
+    summary:
+      'The study discusses how AI and IoT technologies work together in agriculture to improve productivity, resource management, and sustainability. It provides useful concepts for integrating intelligent decision-making into irrigation systems.',
+  },
+
+  {
+    title: 'IoT Based Smart Agriculture Monitoring System',
+    year: '2022',
+    source: 'IEEE',
+    link: 'https://ieeexplore.ieee.org/abstract/document/9716089',
+    summary:
+      'This research presents a real-time agriculture monitoring platform using IoT sensors and cloud communication. The paper demonstrates methods for collecting environmental data and remotely monitoring field conditions.',
+  },
+
+  {
+    title: 'Integrating AI and IoT for Smart Agriculture',
+    year: '2025',
+    source: 'ResearchGate',
+    link: 'https://www.researchgate.net/publication/391578231_Integrating_AI_and_IOT_for_Smart_Agriculture_Machine_Learning_Models_for_Precision_Irrigation',
+    summary:
+      'The paper explores machine learning models for precision irrigation. It shows how AI algorithms can analyze soil and environmental data to predict irrigation needs and optimize water distribution.',
+  },
+
+  {
+    title: 'AI-Driven Precision Agriculture and Smart Irrigation',
+    year: '2025',
+    source: 'Smart Agricultural Technology',
+    link: 'https://www.sciencedirect.com/science/article/pii/S2772375525008603',
+    summary:
+      'This study highlights recent advances in AI-powered irrigation systems and precision agriculture technologies. It provides insights into intelligent resource management and adaptive watering strategies.',
+  },
+
+  {
+    title: 'Internet of Things Applications in Smart Farming',
+    year: '2022',
+    source: 'Smart Agricultural Technology',
+    link: 'https://www.sciencedirect.com/science/article/pii/S2352484722013543',
+    summary:
+      'The paper reviews IoT applications in agriculture, including irrigation, crop monitoring, and environmental sensing. It supports the rover project by explaining sensor integration and remote monitoring architectures.',
+  },
+
+  {
+    title: 'Machine Learning Techniques for Irrigation Management',
+    year: '2022',
+    source: 'Measurement',
+    link: 'https://www.sciencedirect.com/science/article/pii/S0263224121011404',
+    summary:
+      'This research investigates machine learning approaches for irrigation scheduling and water management. The findings help understand how intelligent algorithms can improve irrigation efficiency and reduce water waste.',
+  }
+];
+const abdulPapers = [
+    {
+      title: 'Wireless Sensor Networks for Agriculture: The State-of-the-Art in Practice and Future Challenges',
+      year: '2015',
+      source: 'Computers and Electronics in Agriculture',
+      link: 'https://www.sciencedirect.com/science/article/abs/pii/S0168169915002379',
+      summary:
+        'This paper supports the sensor-network foundation of our rover by explaining how agricultural sensors can monitor field conditions and support automation.',
+    },
+    {
+      title: 'Energy-Efficient Wireless Sensor Networks for Agricultural Monitoring',
+      year: '2023',
+      source: 'Computers and Electrical Engineering',
+      link: 'https://www.sciencedirect.com/science/article/abs/pii/S0045790623004767',
+      summary:
+        'This paper connects with low-power agricultural monitoring, which is useful for designing reliable sensor-based rover systems.',
+    },
+    {
+      title: 'Wireless Sensor Networks in Agriculture Through Machine Learning: A Survey',
+      year: '2022',
+      source: 'Computers and Electronics in Agriculture',
+      link: 'https://www.sciencedirect.com/science/article/abs/pii/S0168169922002459',
+      summary:
+        'This survey supports the idea of using sensor data and intelligent models for agriculture-related decision-making.',
+    },
+    {
+      title: 'Autonomous Navigation and Smart Agriculture Robot System',
+      year: '2024',
+      source: 'IEEE',
+      link: 'https://ieeexplore.ieee.org/abstract/document/10677594',
+      summary:
+        'This paper connects with autonomous movement, navigation logic, and robotic control for agricultural environments.',
+    },
+    {
+      title: 'Smart Agricultural Technology for Automated Farming Systems',
+      year: '2023',
+      source: 'Smart Agricultural Technology',
+      link: 'https://www.sciencedirect.com/science/article/pii/S277237552300045X?via%3Dihub',
+      summary:
+        'This paper supports smart farming automation and helps relate our rover to real agricultural technology applications.',
+    },
+    {
+      title: 'Robotics and Automation in Agriculture',
+      year: '2023',
+      source: 'MDPI Robotics',
+      link: 'https://www.mdpi.com/2624-831X/4/3/12',
+      summary:
+        'This paper supports the robotics side of the project by discussing how robots can be applied to farming, monitoring, and automation.',
+    },
+    {
+      title: 'IoT and Embedded System Based Smart Agriculture Application',
+      year: '2023',
+      source: 'Journal of Innovative Electrical and Electronics Engineering',
+      link: 'https://jieee.a2zjournals.com/index.php/ieee/article/view/96',
+      summary:
+        'This paper connects with embedded system design, IoT monitoring, and smart agriculture implementation.',
+    
+      },
+  ];
+  const ashifPapers = [
+    {
+      title: 'AI-Based Smart Agriculture and Autonomous Farming System',
+      year: '2025',
+      source: 'arXiv',
+      link: 'https://arxiv.org/abs/2507.12716',
+      summary:
+        'This paper supports our project by connecting AI-based decision-making with smart agriculture and autonomous farming applications.',
+    },
+    {
+      title: 'Advanced Smart Farming Technologies for Agricultural Automation',
+      year: '2025',
+      source: 'Computers and Electronics in Agriculture',
+      link: 'https://www.sciencedirect.com/science/article/pii/S0168169925010385',
+      summary:
+        'This paper relates to agricultural automation and supports the development of smart systems for monitoring and irrigation management.',
+    },
+    {
+      title: 'Intelligent Agricultural Monitoring and Automation System',
+      year: '2025',
+      source: 'Computers and Electronics in Agriculture',
+      link: 'https://www.sciencedirect.com/science/article/pii/S0168169925010853?via%3Dihub',
+      summary:
+        'This study supports the monitoring side of our rover by showing how intelligent systems can collect field data and improve farming decisions.',
+    },
+    {
+      title: 'Machine Learning and AI Applications in Precision Agriculture',
+      year: '2025',
+      source: 'arXiv',
+      link: 'https://arxiv.org/abs/2504.18284',
+      summary:
+        'This paper connects with precision agriculture by explaining how AI and machine learning can improve crop monitoring, prediction, and resource management.',
+    },
+    {
+      title: 'AI-Driven Automation for Smart Agriculture',
+      year: '2025',
+      source: 'arXiv',
+      link: 'https://arxiv.org/abs/2508.08607',
+      summary:
+        'This paper supports future research directions for our rover by showing how AI can improve automation, decision-making, and agricultural productivity.',
+    },
+    {
+      title: 'Digital Agriculture and Smart Farming Review',
+      year: '2020',
+      source: 'PubMed',
+      link: 'https://pubmed.ncbi.nlm.nih.gov/31906284/',
+      summary:
+        'This paper provides background on digital agriculture and smart farming, supporting the theoretical foundation of our project.',
+    },
+    {
+      title: 'Smart Agriculture and Intelligent Farming Technologies',
+      year: '2024',
+      source: 'Springer',
+      link: 'https://link.springer.com/article/10.1007/s44279-024-00113-3',
+      summary:
+        'This paper supports the use of intelligent technologies in agriculture and connects with our project’s automation and monitoring goals.',
+    },
+    
+  ];
+  const sojibPapers = [
+        {
+      title: 'AI and IoT-Based Smart Agriculture System',
+      year: '2025',
+      source: 'Springer',
+      link: 'https://link.springer.com/article/10.1007/s44279-025-00430-1',
+      summary:
+        'This paper supports the software and IoT side of the rover by connecting smart agriculture with intelligent monitoring and automated decision-making.',
+    },
+    {
+      title: 'Smart IoT-Driven Precision Agriculture: Land Mapping, Crop Prediction, and Irrigation System',
+      year: '2025',
+      source: 'PLOS ONE',
+      link: 'https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0319268',
+      summary:
+        'This paper presents an IoT-based precision agriculture system with land mapping, crop prediction, and irrigation support. It directly connects with our rover’s monitoring and irrigation logic.',
+    },
+    {
+      title: 'The IoT and AI in Agriculture: The Time Is Now—A Systematic Review',
+      year: '2025',
+      source: 'PMC / PubMed Central',
+      link: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC12196926/',
+      summary:
+        'This review explains how IoT and AI are transforming agriculture through sensing, real-time monitoring, and data-driven decisions. It supports our smart farming and IoT dashboard concept.',
+    },
+    {
+      title: 'Deep Learning for Intelligent Irrigation Decision-Making',
+      year: '2025',
+      source: 'Agricultural Water Management',
+      link: 'https://www.sciencedirect.com/science/article/pii/S0378377425005505',
+      summary:
+        'This paper discusses deep learning for irrigation decisions and supports future improvement of our rover by showing how data can make watering more accurate.',
+    },
+    {
+      title: 'Smart Agriculture and Digital Irrigation Technologies',
+      year: '2025',
+      source: 'Taylor & Francis',
+      link: 'https://www.tandfonline.com/doi/full/10.1080/27525783.2025.2562418',
+      summary:
+        'This paper connects with digital agriculture and supports the use of software-based monitoring and decision support in smart irrigation systems.',
+    },
+    {
+      title: 'Smart Agricultural Technology for IoT-Based Farming Systems',
+      year: '2025',
+      source: 'Smart Agricultural Technology',
+      link: 'https://www.sciencedirect.com/science/article/pii/S2772375525008962',
+      summary:
+        'This paper supports IoT-based farming systems and connects with the sensor communication and monitoring part of our rover.',
+    },
+    {
+      title: 'Smart Agricultural Technology for Intelligent Crop and Irrigation Management',
+      year: '2025',
+      source: 'Smart Agricultural Technology',
+      link: 'https://www.sciencedirect.com/science/article/pii/S2772375525008925',
+      summary:
+        'This paper supports intelligent agriculture and irrigation management, which relates to our adaptive watering and software control logic.',
+    },
+  ];
 
 const teamResearch = [
   {
@@ -236,8 +476,8 @@ const teamResearch = [
     role: 'Hardware Research',
     topic:
       'Assigned topic: component selection, circuit design, power system, sensors, motor driver, relay module, and hardware reliability.',
-    status: 'Pending',
-    papers: [],
+    status: '3 Remains',
+    papers: zawadPapers,
   },
   {
     id: 3,
@@ -245,8 +485,8 @@ const teamResearch = [
     role: 'Software & IoT Research',
     topic:
       'Assigned topic: ESP32 programming, IoT dashboard, sensor data processing, pump control logic, and real-time monitoring.',
-    status: 'Pending',
-    papers: [],
+    status: '3 papers remain',
+    papers: sojibPapers,
   },
   {
     id: 4,
@@ -254,8 +494,8 @@ const teamResearch = [
     role: 'Robotics & Testing Research',
     topic:
       'Assigned topic: rover movement, obstacle avoidance, chassis testing, navigation logic, and system integration.',
-    status: 'Pending',
-    papers: [],
+    status: '3 Remains',
+    papers: abdulPapers,
   },
   {
     id: 5,
@@ -263,8 +503,8 @@ const teamResearch = [
     role: 'Documentation & Presentation Research',
     topic:
       'Assigned topic: documentation, research summary, presentation support, testing records, and final report preparation.',
-    status: 'Pending',
-    papers: [],
+    status: '3 Remains',
+    papers: ashifPapers,
   },
 ];
 
