@@ -69,4 +69,14 @@ export const projectGoals = [
     title: 'Data Logging & Analytics',
     description: 'Record environmental data and create reports on watering patterns and plant health metrics',
   },
+  {
+    title: 'Post-Irrigation Verification',
+    description:
+      'Check soil moisture again after watering to confirm whether the irrigation action was effective.',
+  },
+  {
+    title: 'Low-Cost Practical Design',
+    description:
+      'Use affordable and locally available components such as ESP32, soil sensor, ultrasonic sensor, relay, pump, and 4WD chassis.',
+  },
 ];
