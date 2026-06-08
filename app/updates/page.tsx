@@ -278,6 +278,30 @@ const zawadPapers = [
     summary:
       "This research investigates machine learning approaches for irrigation scheduling and water management. The findings help understand how intelligent algorithms can improve irrigation efficiency and reduce water waste.",
   },
+  {
+  title: "Low Cost AI-Driven Autonomous Rescue Bot for Water-Based Life-Saving Missions",
+  year: "2025",
+  source: "IEEE Conference",
+  link: "https://ieeexplore.ieee.org/document/10661094",
+  summary:
+    "This paper presents a low-cost autonomous robot designed for rescue operations using AI-based detection and navigation. It supports our Smart Irrigation Rover by showing how affordable robotic systems can combine sensing, autonomy, and decision-making for real-world field operation.",
+},
+{
+  title: "IoT Based Fruit Quality Inspection and Lifespan Detection System",
+  year: "2024",
+  source: "IEEE Conference",
+  link: "https://ieeexplore.ieee.org/document/10660792",
+  summary:
+    "This paper focuses on IoT-based monitoring and automated quality inspection using sensor data. It is relevant to our project because our rover also depends on IoT monitoring, sensor readings, and real-time data communication for smart agriculture applications.",
+},
+{
+  title: "Smart Floor Cleaning Robot",
+  year: "2023",
+  source: "IEEE TENSYMP",
+  link: "https://ieeexplore.ieee.org/document/10660714",
+  summary:
+    "This paper describes an autonomous cleaning robot with movement control and obstacle-aware operation. It supports our rover project by providing ideas for mobile robot design, navigation, motor control, and autonomous task execution in a practical environment.",
+},
 ];
 const abdulPapers = [
   {
@@ -475,7 +499,7 @@ const teamResearch = [
     role: "Hardware Research",
     topic:
       "Assigned topic: component selection, circuit design, power system, sensors, motor driver, relay module, and hardware reliability.",
-    status: "3 Remains",
+    status: "Completed",
     papers: zawadPapers,
   },
   {
@@ -484,7 +508,7 @@ const teamResearch = [
     role: "Software & IoT Research",
     topic:
       "Assigned topic: ESP32 programming, IoT dashboard, sensor data processing, pump control logic, and real-time monitoring.",
-    status: "3 papers remain",
+    status: "Completed",
     papers: sojibPapers,
   },
   {
@@ -493,7 +517,7 @@ const teamResearch = [
     role: "Robotics & Testing Research",
     topic:
       "Assigned topic: rover movement, obstacle avoidance, chassis testing, navigation logic, and system integration.",
-    status: "3 Remains",
+    status: "Completed",
     papers: abdulPapers,
   },
   {
@@ -502,7 +526,7 @@ const teamResearch = [
     role: "Documentation & Presentation Research",
     topic:
       "Assigned topic: documentation, research summary, presentation support, testing records, and final report preparation.",
-    status: "3 Remains",
+    status: "Completed",
     papers: ashifPapers,
   },
 ];
