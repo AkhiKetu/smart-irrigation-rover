@@ -558,6 +558,16 @@ const researchItems = [
       "Analysis supports the development of a low-cost Smart Irrigation Rover",
     ],
   },
+  {
+    title: "Project Documents",
+    status: "Available",
+    summary:
+      "Official project proposal and project overview documents are available here for viewing.",
+    details: [
+      "CSE 426 Project Proposal Form",
+      "Smart Irrigation Rover Project Overview",
+    ],
+  },
 ];
 
 export default function UpdatesPage() {
@@ -868,27 +878,75 @@ export default function UpdatesPage() {
                         {item.summary}
                       </p>
 
-                      <ul className="mt-5 space-y-3">
-                        {item.details.map((detail, detailIndex) => (
-                          <li
-                            key={detailIndex}
-                            className="flex gap-3 text-sm text-muted-foreground leading-relaxed"
+                      {item.title === "Project Documents" ? (
+                        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                          <a
+                            href="/Documents/IUB_CSE 426_Project Proposal Form.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="rounded-2xl border border-border bg-background p-5 hover:border-emerald-500/60 hover:shadow-md transition-all"
                           >
-                            <span className="mt-1.5 h-2 w-2 rounded-full bg-emerald-500 shrink-0" />
-                            <span>{detail}</span>
-                          </li>
-                        ))}
-                      </ul>
+                            <p className="text-sm font-semibold text-emerald-600 mb-2">
+                              PDF Document
+                            </p>
+                            <h3 className="text-lg font-bold mb-2">
+                              Project Proposal Form
+                            </h3>
+                            <p className="text-sm text-muted-foreground">
+                              Survey, goals, block diagram, timeline,
+                              references, and team details.
+                            </p>
+                            <span className="inline-flex mt-4 text-sm font-semibold text-emerald-600">
+                              Open PDF →
+                            </span>
+                          </a>
 
-                      {item.title === "Survey Questionnaire" && (
-                        <a
-                          href="https://docs.google.com/forms/d/e/1FAIpQLSctAt3ngjfl3uGf-DIGq8hnoRspJsDFtkcciusU30_ddB2sug/viewform?usp=header"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex mt-5 px-5 py-2.5 rounded-lg bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold hover:from-emerald-600 hover:to-teal-700 transition-all shadow-md"
-                        >
-                          Open Survey Form
-                        </a>
+                          <a
+                            href="/Documents/Team-02-Project Overview.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="rounded-2xl border border-border bg-background p-5 hover:border-emerald-500/60 hover:shadow-md transition-all"
+                          >
+                            <p className="text-sm font-semibold text-emerald-600 mb-2">
+                              PDF Document
+                            </p>
+                            <h3 className="text-lg font-bold mb-2">
+                              Project Overview
+                            </h3>
+                            <p className="text-sm text-muted-foreground">
+                              Methodology, research questions, cost estimation,
+                              classification, and data analysis.
+                            </p>
+                            <span className="inline-flex mt-4 text-sm font-semibold text-emerald-600">
+                              Open PDF →
+                            </span>
+                          </a>
+                        </div>
+                      ) : (
+                        <>
+                          <ul className="mt-5 space-y-3">
+                            {item.details.map((detail, detailIndex) => (
+                              <li
+                                key={detailIndex}
+                                className="flex gap-3 text-sm text-muted-foreground leading-relaxed"
+                              >
+                                <span className="mt-1.5 h-2 w-2 rounded-full bg-emerald-500 shrink-0" />
+                                <span>{detail}</span>
+                              </li>
+                            ))}
+                          </ul>
+
+                          {item.title === "Survey Questionnaire" && (
+                            <a
+                              href="https://docs.google.com/forms/d/e/1FAIpQLSctAt3ngjfl3uGf-DIGq8hnoRspJsDFtkcciusU30_ddB2sug/viewform?usp=header"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex mt-5 px-5 py-2.5 rounded-lg bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold hover:from-emerald-600 hover:to-teal-700 transition-all shadow-md"
+                            >
+                              Open Survey Form
+                            </a>
+                          )}
+                        </>
                       )}
                     </div>
                   )}
