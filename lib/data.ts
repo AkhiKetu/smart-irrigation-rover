@@ -10,7 +10,7 @@ export const teamMembers = [
   },
   {
     id: 2,
-    name: 'Zawad Abdullah',
+    name: 'Md. Jawad Abdullah',
     role: 'Software Development & IoT Integration',
     bio: 'Focused on developing the rover control algorithms, sensor data processing, irrigation decision logic, and IoT monitoring system. Contributed to programming the ESP32 controller and integrating real-time data communication features.',
     image: '/Team/Zawad.jpg',
@@ -19,7 +19,7 @@ export const teamMembers = [
   },
   {
     id: 3,
-    name: 'Muhammad Shajalal Sojib',
+    name: 'Shajalal Sojib',
     role: 'Software Engineering & System Integration',
     bio: 'Worked on autonomous navigation logic, obstacle detection algorithms, system testing, debugging, and integration of software modules. Assisted in optimizing system performance and ensuring reliable rover operation.',
     image: '/Team/Sojib.jpg',
@@ -28,7 +28,7 @@ export const teamMembers = [
   },
   {
     id: 4,
-    name: 'Abdul Gaffar',
+    name: 'Abdul Gaffar Fahim',
     role: 'Lead-2:Hardware Design & Electronics Integration',
     bio: 'Responsible for circuit design, component selection, sensor integration, power management, and assembly of the rover electronic subsystems. Ensured stable hardware performance throughout development and testing',
     image: '/Team/Gaffar.jpg',
