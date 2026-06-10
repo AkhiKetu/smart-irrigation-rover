@@ -424,12 +424,12 @@ const ashifPapers = [
 ];
 const sojibPapers = [
   {
-    title: "AI and IoT-Based Smart Agriculture System",
+    title: "Smart Drip Irrigation Systems Using IoT: A Review of Architectures, Machine Learning",
     year: "2025",
     source: "Springer",
     link: "https://link.springer.com/article/10.1007/s44279-025-00430-1",
     summary:
-      "This paper supports the software and IoT side of the rover by connecting smart agriculture with intelligent monitoring and automated decision-making.",
+      "A systematic review of IoT-based drip irrigation systems, evaluating three-layer architectures and ML models (Random Forest, LSTM, SVR) for soil moisture prediction. Identifies edge computing and solar-powered nodes as key emerging trends, while highlighting cost and connectivity barriers to adoption.",
   },
   {
     title:
@@ -481,6 +481,33 @@ const sojibPapers = [
     summary:
       "This paper supports intelligent agriculture and irrigation management, which relates to our adaptive watering and software control logic.",
   },
+ {
+     title:
+       "Smart Agricultural Technology for Intelligent Crop and Irrigation Management",
+     year: "2025",
+     source: "Smart Agricultural Technology",
+     link: "https://www.sciencedirect.com/science/article/pii/S2772375525008925",
+     summary:
+       "This paper supports intelligent agriculture and irrigation management, which relates to our adaptive watering and software control logic.",
+   },
+ {
+     title:
+       "Smart Agricultural Technology for Intelligent Crop and Irrigation Management",
+     year: "2025",
+     source: "Smart Agricultural Technology",
+     link: "https://www.sciencedirect.com/science/article/pii/S2772375525008925",
+     summary:
+       "This paper supports intelligent agriculture and irrigation management, which relates to our adaptive watering and software control logic.",
+   },
+ {
+     title:
+       "Smart Agricultural Technology for Intelligent Crop and Irrigation Management",
+     year: "2025",
+     source: "Smart Agricultural Technology",
+     link: "https://www.sciencedirect.com/science/article/pii/S2772375525008925",
+     summary:
+       "This paper supports intelligent agriculture and irrigation management, which relates to our adaptive watering and software control logic.",
+   },
 ];
 
 const teamResearch = [
