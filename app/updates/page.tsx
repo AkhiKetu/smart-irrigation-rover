@@ -495,7 +495,7 @@ const teamResearch = [
   },
   {
     id: 2,
-    name: "Zawad Abdullah",
+    name: "Md. jawad Abdullah",
     role: "Hardware Research",
     topic:
       "Assigned topic: component selection, circuit design, power system, sensors, motor driver, relay module, and hardware reliability.",
@@ -504,7 +504,7 @@ const teamResearch = [
   },
   {
     id: 3,
-    name: "Muhammad Shajalal Sojib",
+    name: "Shajalal Sojib",
     role: "Software & IoT Research",
     topic:
       "Assigned topic: ESP32 programming, IoT dashboard, sensor data processing, pump control logic, and real-time monitoring.",
