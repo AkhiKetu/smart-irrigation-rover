@@ -497,7 +497,7 @@ const sojibPapers = [
      source: "IEEE ICACIS Conference (ICACIS60321)",
      link: "https://ieeexplore.ieee.org/document/10480750/",
      summary:
-       "Presents a smart irrigation framework integrating soil moisture sensors, IoT automation, cloud analytics, and a mobile app for remote monitoring and manual override. Prototype results show improved crop yield and reduced water use compared to conventional flooding methods, with built-in redundancy for node failures.",
+       " Presents a smart irrigation framework integrating soil moisture sensors, IoT automation, cloud analytics, and a mobile app for remote monitoring and manual override. Prototype results show improved crop yield and reduced water use compared to conventional flooding methods, with built-in redundancy for node failures.",
    },
  {
      title:
