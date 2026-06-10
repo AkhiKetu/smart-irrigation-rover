@@ -465,48 +465,48 @@ const sojibPapers = [
       "The first systematic review merging Machine Learning with Digital Twin (DT) technology for smart irrigation, covering literature from 2019–2024. DT-powered systems using Random Forest, XGBoost, and LSTM reduced water use by 25–40% while maintaining or improving crop yield.",
   },
   {
-    title: "Smart Agricultural Technology for IoT-Based Farming Systems",
+    title: "Artificial Intelligence-Driven Solar Smart Irrigation for Sustainable Agriculture: Trends, Challenges, and SDG Implications",
     year: "2025",
-    source: "Smart Agricultural Technology",
+    source: "Smart Agricultural Technology, ScienceDirect",
     link: "https://www.sciencedirect.com/science/article/pii/S2772375525008962",
     summary:
-      "This paper supports IoT-based farming systems and connects with the sensor communication and monitoring part of our rover.",
+      "A systematic review integrating AI, solar PV energy, and UN SDG alignment for smart irrigation systems (2016–2025). Maps deep reinforcement learning and bifacial PV modules as converging technologies, with SDG contributions to Zero Hunger, Clean Water, and Climate Action; payback period estimated at 3–6 years.",
   },
   {
     title:
-      "Smart Agricultural Technology for Intelligent Crop and Irrigation Management",
+      "Innovative Applications of IoT and Machine Learning in Sustainable Agricultural Irrigation Management",
     year: "2025",
-    source: "Smart Agricultural Technology",
+    source: "Smart Agricultural Technology, ScienceDirect",
     link: "https://www.sciencedirect.com/science/article/pii/S2772375525008925",
     summary:
-      "This paper supports intelligent agriculture and irrigation management, which relates to our adaptive watering and software control logic.",
+      "Examines IoT sensor networks and ML algorithms (SVM, XGBoost, ANN) for optimizing irrigation water use, with a focus on adoption barriers and sustainability. Reports 20–35% water reduction and 10–18% yield increase, proposing a risk assessment framework for technology rollout.",
   },
  {
      title:
-       "Smart Agricultural Technology for Intelligent Crop and Irrigation Management",
-     year: "2025",
-     source: "Smart Agricultural Technology",
-     link: "https://www.sciencedirect.com/science/article/pii/S2772375525008925",
+       "Smart Irrigation System Using IoT and Machine Learning Methods",
+     year: "2023",
+     source: "IEEE InC4 Conference (InC457730)",
+     link: "https://ieeexplore.ieee.org/abstract/document/10296736",
      summary:
-       "This paper supports intelligent agriculture and irrigation management, which relates to our adaptive watering and software control logic.",
+       "Proposes a data-driven smart irrigation system combining IoT sensors with ML classifiers trained on a Kaggle crop scheduling dataset. Random Forest achieved >90% accuracy in irrigation trigger prediction, enabling automated, cloud-connected scheduling without human intervention.",
    },
  {
      title:
-       "Smart Agricultural Technology for Intelligent Crop and Irrigation Management",
-     year: "2025",
-     source: "Smart Agricultural Technology",
-     link: "https://www.sciencedirect.com/science/article/pii/S2772375525008925",
+       "Smart Irrigation: Revolutionizing Water Management in Agriculture for Sustainable Practices and Improved Crop Yield",
+     year: "2024",
+     source: "IEEE ICACIS Conference (ICACIS60321)",
+     link: "https://ieeexplore.ieee.org/document/10480750/",
      summary:
-       "This paper supports intelligent agriculture and irrigation management, which relates to our adaptive watering and software control logic.",
+       "Presents a smart irrigation framework integrating soil moisture sensors, IoT automation, cloud analytics, and a mobile app for remote monitoring and manual override. Prototype results show improved crop yield and reduced water use compared to conventional flooding methods, with built-in redundancy for node failures.",
    },
  {
      title:
-       "Smart Agricultural Technology for Intelligent Crop and Irrigation Management",
-     year: "2025",
-     source: "Smart Agricultural Technology",
-     link: "https://www.sciencedirect.com/science/article/pii/S2772375525008925",
+       "An IoT-Based Smart Irrigation System Using Arduino and Raspberry Pi",
+     year: "2024",
+     source: "IEEE ICAAIC Conference (ICAAIC60222)",
+     link: "https://ieeexplore.ieee.org/abstract/document/10438787",
      summary:
-       "This paper supports intelligent agriculture and irrigation management, which relates to our adaptive watering and software control logic.",
+       "Designs a low-cost IoT irrigation system using Arduino and Raspberry Pi with capacitive sensors, threshold-based automation, and SQLite data logging. Demonstrated measurable water savings over timer-based systems; open-source and modular design targets smallholder farmers in resource-limited settings.",
    },
 ];
 
