@@ -457,12 +457,12 @@ const sojibPapers = [
       "This paper discusses deep learning for irrigation decisions and supports future improvement of our rover by showing how data can make watering more accurate.",
   },
   {
-    title: "Smart Agriculture and Digital Irrigation Technologies",
+    title: "Machine Learning and Digital Twins in Smart Irrigation: Optimising Water Use Through Agricultural Data Analytics",
     year: "2025",
     source: "Taylor & Francis",
     link: "https://www.tandfonline.com/doi/full/10.1080/27525783.2025.2562418",
     summary:
-      "This paper connects with digital agriculture and supports the use of software-based monitoring and decision support in smart irrigation systems.",
+      "The first systematic review merging Machine Learning with Digital Twin (DT) technology for smart irrigation, covering literature from 2019–2024. DT-powered systems using Random Forest, XGBoost, and LSTM reduced water use by 25–40% while maintaining or improving crop yield.",
   },
   {
     title: "Smart Agricultural Technology for IoT-Based Farming Systems",
