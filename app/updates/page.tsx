@@ -279,29 +279,30 @@ const zawadPapers = [
       "This research investigates machine learning approaches for irrigation scheduling and water management. The findings help understand how intelligent algorithms can improve irrigation efficiency and reduce water waste.",
   },
   {
-  title: "Low Cost AI-Driven Autonomous Rescue Bot for Water-Based Life-Saving Missions",
-  year: "2025",
-  source: "IEEE Conference",
-  link: "https://ieeexplore.ieee.org/document/10661094",
-  summary:
-    "This paper presents a low-cost autonomous robot designed for rescue operations using AI-based detection and navigation. It supports our Smart Irrigation Rover by showing how affordable robotic systems can combine sensing, autonomy, and decision-making for real-world field operation.",
-},
-{
-  title: "IoT Based Fruit Quality Inspection and Lifespan Detection System",
-  year: "2024",
-  source: "IEEE Conference",
-  link: "https://ieeexplore.ieee.org/document/10660792",
-  summary:
-    "This paper focuses on IoT-based monitoring and automated quality inspection using sensor data. It is relevant to our project because our rover also depends on IoT monitoring, sensor readings, and real-time data communication for smart agriculture applications.",
-},
-{
-  title: "Smart Floor Cleaning Robot",
-  year: "2023",
-  source: "IEEE TENSYMP",
-  link: "https://ieeexplore.ieee.org/document/10660714",
-  summary:
-    "This paper describes an autonomous cleaning robot with movement control and obstacle-aware operation. It supports our rover project by providing ideas for mobile robot design, navigation, motor control, and autonomous task execution in a practical environment.",
-},
+    title:
+      "Low Cost AI-Driven Autonomous Rescue Bot for Water-Based Life-Saving Missions",
+    year: "2025",
+    source: "IEEE Conference",
+    link: "https://ieeexplore.ieee.org/document/10661094",
+    summary:
+      "This paper presents a low-cost autonomous robot designed for rescue operations using AI-based detection and navigation. It supports our Smart Irrigation Rover by showing how affordable robotic systems can combine sensing, autonomy, and decision-making for real-world field operation.",
+  },
+  {
+    title: "IoT Based Fruit Quality Inspection and Lifespan Detection System",
+    year: "2024",
+    source: "IEEE Conference",
+    link: "https://ieeexplore.ieee.org/document/10660792",
+    summary:
+      "This paper focuses on IoT-based monitoring and automated quality inspection using sensor data. It is relevant to our project because our rover also depends on IoT monitoring, sensor readings, and real-time data communication for smart agriculture applications.",
+  },
+  {
+    title: "Smart Floor Cleaning Robot",
+    year: "2023",
+    source: "IEEE TENSYMP",
+    link: "https://ieeexplore.ieee.org/document/10660714",
+    summary:
+      "This paper describes an autonomous cleaning robot with movement control and obstacle-aware operation. It supports our rover project by providing ideas for mobile robot design, navigation, motor control, and autonomous task execution in a practical environment.",
+  },
 ];
 const abdulPapers = [
   {
@@ -424,7 +425,8 @@ const ashifPapers = [
 ];
 const sojibPapers = [
   {
-    title: "Smart Drip Irrigation Systems Using IoT: A Review of Architectures, Machine Learning",
+    title:
+      "Smart Drip Irrigation Systems Using IoT: A Review of Architectures, Machine Learning",
     year: "2025",
     source: "Springer",
     link: "https://link.springer.com/article/10.1007/s44279-025-00430-1",
@@ -457,7 +459,8 @@ const sojibPapers = [
       "This paper discusses deep learning for irrigation decisions and supports future improvement of our rover by showing how data can make watering more accurate.",
   },
   {
-    title: "Machine Learning and Digital Twins in Smart Irrigation: Optimising Water Use Through Agricultural Data Analytics",
+    title:
+      "Machine Learning and Digital Twins in Smart Irrigation: Optimising Water Use Through Agricultural Data Analytics",
     year: "2025",
     source: "Taylor & Francis",
     link: "https://www.tandfonline.com/doi/full/10.1080/27525783.2025.2562418",
@@ -465,7 +468,8 @@ const sojibPapers = [
       "The first systematic review merging Machine Learning with Digital Twin (DT) technology for smart irrigation, covering literature from 2019–2024. DT-powered systems using Random Forest, XGBoost, and LSTM reduced water use by 25–40% while maintaining or improving crop yield.",
   },
   {
-    title: "Artificial Intelligence-Driven Solar Smart Irrigation for Sustainable Agriculture: Trends, Challenges, and SDG Implications",
+    title:
+      "Artificial Intelligence-Driven Solar Smart Irrigation for Sustainable Agriculture: Trends, Challenges, and SDG Implications",
     year: "2025",
     source: "Smart Agricultural Technology, ScienceDirect",
     link: "https://www.sciencedirect.com/science/article/pii/S2772375525008962",
@@ -481,33 +485,32 @@ const sojibPapers = [
     summary:
       "Examines IoT sensor networks and ML algorithms (SVM, XGBoost, ANN) for optimizing irrigation water use, with a focus on adoption barriers and sustainability. Reports 20–35% water reduction and 10–18% yield increase, proposing a risk assessment framework for technology rollout.",
   },
- {
-     title:
-       "Smart Irrigation System Using IoT and Machine Learning Methods",
-     year: "2023",
-     source: "IEEE InC4 Conference (InC457730)",
-     link: "https://ieeexplore.ieee.org/abstract/document/10296736",
-     summary:
-       "Proposes a data-driven smart irrigation system combining IoT sensors with ML classifiers trained on a Kaggle crop scheduling dataset. Random Forest achieved >90% accuracy in irrigation trigger prediction, enabling automated, cloud-connected scheduling without human intervention.",
-   },
- {
-     title:
-       "Smart Irrigation: Revolutionizing Water Management in Agriculture for Sustainable Practices and Improved Crop Yield",
-     year: "2024",
-     source: "IEEE ICACIS Conference (ICACIS60321)",
-     link: "https://ieeexplore.ieee.org/document/10480750/",
-     summary:
-       " Presents a smart irrigation framework integrating soil moisture sensors, IoT automation, cloud analytics, and a mobile app for remote monitoring and manual override. Prototype results show improved crop yield and reduced water use compared to conventional flooding methods, with built-in redundancy for node failures.",
-   },
- {
-     title:
-       "An IoT-Based Smart Irrigation System Using Arduino and Raspberry Pi",
-     year: "2024",
-     source: "IEEE ICAAIC Conference (ICAAIC60222)",
-     link: "https://ieeexplore.ieee.org/abstract/document/10438787",
-     summary:
-       "Designs a low-cost IoT irrigation system using Arduino and Raspberry Pi with capacitive sensors, threshold-based automation, and SQLite data logging. Demonstrated measurable water savings over timer-based systems; open-source and modular design targets smallholder farmers in resource-limited settings.",
-   },
+  {
+    title: "Smart Irrigation System Using IoT and Machine Learning Methods",
+    year: "2023",
+    source: "IEEE InC4 Conference (InC457730)",
+    link: "https://ieeexplore.ieee.org/abstract/document/10296736",
+    summary:
+      "Proposes a data-driven smart irrigation system combining IoT sensors with ML classifiers trained on a Kaggle crop scheduling dataset. Random Forest achieved >90% accuracy in irrigation trigger prediction, enabling automated, cloud-connected scheduling without human intervention.",
+  },
+  {
+    title:
+      "Smart Irrigation: Revolutionizing Water Management in Agriculture for Sustainable Practices and Improved Crop Yield",
+    year: "2024",
+    source: "IEEE ICACIS Conference (ICACIS60321)",
+    link: "https://ieeexplore.ieee.org/document/10480750/",
+    summary:
+      " Presents a smart irrigation framework integrating soil moisture sensors, IoT automation, cloud analytics, and a mobile app for remote monitoring and manual override. Prototype results show improved crop yield and reduced water use compared to conventional flooding methods, with built-in redundancy for node failures.",
+  },
+  {
+    title:
+      "An IoT-Based Smart Irrigation System Using Arduino and Raspberry Pi",
+    year: "2024",
+    source: "IEEE ICAAIC Conference (ICAAIC60222)",
+    link: "https://ieeexplore.ieee.org/abstract/document/10438787",
+    summary:
+      "Designs a low-cost IoT irrigation system using Arduino and Raspberry Pi with capacitive sensors, threshold-based automation, and SQLite data logging. Demonstrated measurable water savings over timer-based systems; open-source and modular design targets smallholder farmers in resource-limited settings.",
+  },
 ];
 
 const teamResearch = [
