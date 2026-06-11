@@ -292,84 +292,92 @@ const akhiPapers: Paper[] = [
 
 const zawadPapers: Paper[] = [
   {
-    title: "An Overview of Smart Irrigation Systems Using IoT",
+    title: "Review of Agricultural IoT Technology",
     year: "2022",
-    source: "Energy Nexus",
-    link: "https://www.sciencedirect.com/science/article/pii/S2589721722000010",
+    source: "Elsevier",
+    link: "https://www.sciencedirect.com/science/article/pii/S2589721722000010?ref=pdf_download&fr=RR-2&rr=a04fa0469f57786d",
     summary:
-      "Reviews IoT-based smart irrigation systems using soil moisture sensors, wireless communication, and cloud monitoring.",
+      "Reviews agricultural IoT technologies, including sensor-based monitoring, wireless communication, and smart farming applications.",
   },
   {
-    title: "Artificial Intelligence and IoT for Sustainable Agriculture",
+    title:
+      "High-Technology Agriculture System to Enhance Food Security: A Concept of Smart Irrigation System Using Internet of Things and Cloud Computing",
     year: "2024",
-    source: "Ain Shams Engineering Journal",
+    source: "Elsevier",
     link: "https://www.sciencedirect.com/science/article/pii/S1658077X24000110",
     summary:
-      "Discusses how AI and IoT technologies work together in agriculture to improve productivity and resource management.",
+      "Presents a smart irrigation concept using IoT and cloud computing to improve agricultural productivity and food security.",
   },
   {
-    title: "IoT Based Smart Agriculture Monitoring System",
+    title:
+      "IoT-Equipped and AI-Enabled Next Generation Smart Agriculture: A Critical Review, Current Challenges and Future Trends",
     year: "2022",
     source: "IEEE",
     link: "https://ieeexplore.ieee.org/abstract/document/9716089",
     summary:
-      "Presents a real-time agriculture monitoring platform using IoT sensors and cloud communication.",
+      "Critically reviews IoT- and AI-enabled smart agriculture systems, highlighting current challenges and future research trends.",
   },
   {
-    title: "Integrating AI and IoT for Smart Agriculture",
+    title:
+      "Integrating AI and IOT for Smart Agriculture: Machine Learning Models for Precision Irrigation",
     year: "2025",
-    source: "ResearchGate",
+    source: "MDPI",
     link: "https://www.researchgate.net/publication/391578231_Integrating_AI_and_IOT_for_Smart_Agriculture_Machine_Learning_Models_for_Precision_Irrigation",
     summary:
-      "Explores machine learning models for precision irrigation, showing how AI algorithms can predict irrigation needs.",
+      "Explores AI and machine learning models for precision irrigation and smart agricultural decision-making.",
   },
   {
-    title: "AI-Driven Precision Agriculture and Smart Irrigation",
+    title:
+      "Artificial Intelligence of Things (AIoT) for Precision Agriculture: Applications in Smart Irrigation, Nutrient and Disease Management",
     year: "2025",
-    source: "Smart Agricultural Technology",
+    source: "Elsevier",
     link: "https://www.sciencedirect.com/science/article/pii/S2772375525008603",
     summary:
-      "Highlights recent advances in AI-powered irrigation systems and precision agriculture technologies.",
+      "Discusses AIoT applications in precision agriculture, including smart irrigation, nutrient control, and disease management.",
   },
   {
-    title: "Internet of Things Applications in Smart Farming",
+    title: "Smart Irrigation System Based on IoT and Machine Learning",
     year: "2022",
-    source: "Smart Agricultural Technology",
+    source: "Elsevier",
     link: "https://www.sciencedirect.com/science/article/pii/S2352484722013543",
     summary:
-      "Reviews IoT applications in agriculture including irrigation, crop monitoring, and environmental sensing.",
+      "Focuses on smart irrigation using IoT and machine learning for efficient water management in agriculture.",
   },
   {
-    title: "Machine Learning Techniques for Irrigation Management",
+    title:
+      "Analysis of Low Power Wide Area Network Wireless Technologies in Smart Agriculture for Large-Scale Farm Monitoring and Tractor Communications",
     year: "2022",
-    source: "Measurement",
+    source: "Elsevier",
     link: "https://www.sciencedirect.com/science/article/pii/S0263224121011404",
     summary:
-      "Investigates machine learning approaches for irrigation scheduling and water management.",
+      "Analyzes LPWAN wireless technologies for large-scale smart agriculture, farm monitoring, and tractor communication systems.",
   },
   {
-    title: "Low Cost AI-Driven Autonomous Rescue Bot for Water-Based Life-Saving Missions",
-    year: "2025",
-    source: "IEEE Conference",
-    link: "https://ieeexplore.ieee.org/document/10661094",
-    summary:
-      "Shows how affordable robotic systems can combine sensing, autonomy, and decision-making for real-world field operation.",
-  },
-  {
-    title: "IoT Based Fruit Quality Inspection and Lifespan Detection System",
+    title:
+      "Remote Sensing and Decision Support System Applications in Precision Agriculture: Challenges and Possibilities",
     year: "2024",
-    source: "IEEE Conference",
-    link: "https://ieeexplore.ieee.org/document/10660792",
+    source: "IEEE",
+    link: "https://ieeexplore.ieee.org/abstract/document/10477982",
     summary:
-      "Focuses on IoT-based monitoring and automated quality inspection using sensor data.",
+      "Reviews remote sensing and decision support systems for precision agriculture, including challenges and future possibilities.",
   },
   {
-    title: "Smart Floor Cleaning Robot",
+    title:
+      "A Concept for Application of Integrated Digital Technologies to Enhance Future Smart Agricultural Systems",
     year: "2023",
-    source: "IEEE TENSYMP",
-    link: "https://ieeexplore.ieee.org/document/10660714",
+    source: "Elsevier",
+    link: "https://www.sciencedirect.com/science/article/pii/S2772375523000850",
     summary:
-      "Describes an autonomous cleaning robot with movement control and obstacle-aware operation.",
+      "Introduces a concept for using integrated digital technologies to strengthen future smart agricultural systems.",
+  },
+  {
+    title:
+      "Why the Low Adoption of Robotics in the Farms? Challenges for the Establishment of Commercial Agricultural Robots",
+    year: "2023",
+    source: "Elsevier",
+    link: "https://www.sciencedirect.com/science/article/pii/S277237552200034X",
+    summary:
+      "Discusses barriers to agricultural robot adoption and the challenges of commercializing robotic systems for farm use.",
   },
 ];
 

@@ -128,6 +128,12 @@ const mainCards = [
     icon: "",
     image: "/VisionAndGoals/roadmap.png",
   },
+  {
+    id: "innovation",
+    title: "Project Innovation",
+    subtitle: "What makes our rover different",
+    image: "VisionAndGoals/innovationIcon.png", // add your poster later
+  },
 ];
 
 export default function VisionPage() {
@@ -156,7 +162,7 @@ export default function VisionPage() {
 
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {mainCards.map((card) => (
               <button
                 key={card.id}
@@ -320,6 +326,19 @@ export default function VisionPage() {
                       </div>
                     </div>
                   ))}
+                </div>
+              </div>
+            )}
+           
+            {openCard === "innovation" && (
+              <div className="space-y-10 animate-in fade-in duration-500">
+                {/* Innovation Poster */}
+                <div className="bg-card border border-border rounded-3xl overflow-hidden shadow-xl">
+                  <img
+                    src="VisionAndGoals/innovation.png"
+                    alt="Project Innovation"
+                    className="w-full h-auto object-cover"
+                  />
                 </div>
               </div>
             )}
