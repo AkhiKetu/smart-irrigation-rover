@@ -1,6 +1,7 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
+import { FaGithub, FaLinkedin, FaEnvelope,FaResearchgate  } from "react-icons/fa";
 
 type TeamMember = {
   id: number;
@@ -10,6 +11,8 @@ type TeamMember = {
   image: string;
   email?: string;
   github?: string;
+  linkedin?: string;
+  researchgate?: string;
 };
 
 export function TeamCard({ member }: { member: TeamMember }) {
@@ -21,21 +24,27 @@ export function TeamCard({ member }: { member: TeamMember }) {
         <img
           src={member.image}
           alt={member.name}
-          className="h-full w-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+          className="h-full w-full object-cover"
         />
       </div>
 
       <div className="p-5">
-        <h3 className="text-lg font-bold text-foreground mb-1">{member.name}</h3>
-        <p className="text-sm font-semibold text-emerald-600 mb-4">{member.role}</p>
+        <h3 className="text-lg font-bold text-foreground mb-1">
+          {member.name}
+        </h3>
 
-        <div className="grid grid-cols-2 gap-2 mb-3">
+        <p className="text-sm font-semibold text-emerald-600 mb-4">
+          {member.role}
+        </p>
+
+        <div className="flex items-center gap-2 mb-4">
           {member.email && (
             <a
               href={`mailto:${member.email}`}
-              className="px-3 py-2 rounded-xl bg-muted text-xs font-semibold text-center hover:bg-emerald-500/10 hover:text-emerald-600 border border-border transition-all"
+              className="h-6 w-6"
+              aria-label={`${member.name} Email`}
             >
-              Email
+              <FaEnvelope className="h-5 w-5" />
             </a>
           )}
 
@@ -43,10 +52,35 @@ export function TeamCard({ member }: { member: TeamMember }) {
             <a
               href={member.github}
               target="_blank"
-              rel="noreferrer"
-              className="px-3 py-2 rounded-xl bg-foreground text-background text-xs font-semibold text-center hover:bg-emerald-600 hover:text-white transition-all"
+              rel="noopener noreferrer"
+              className="h-6 w-6"
+              aria-label={`${member.name} GitHub`}
             >
-              GitHub
+              <FaGithub className="h-5 w-5" />
+            </a>
+          )}
+
+          {member.linkedin && (
+            <a
+              href={member.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="h-6 w-6"
+              aria-label={`${member.name} LinkedIn`}
+            >
+              <FaLinkedin className="h-5 w-5" />
+            </a>
+          )}
+
+          {member.researchgate && (
+            <a
+              href={member.researchgate}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="h-6 w-6"
+              aria-label={`${member.name} ResearchGate`}
+            >
+              <FaResearchgate  className="h-5 w-5" />
             </a>
           )}
         </div>
@@ -55,11 +89,11 @@ export function TeamCard({ member }: { member: TeamMember }) {
           onClick={() => setShowBio(!showBio)}
           className="w-full px-3 py-2 rounded-xl bg-emerald-500/10 text-emerald-700 text-xs font-bold hover:bg-emerald-500 hover:text-white transition-all"
         >
-          {showBio ? 'Hide Details' : 'View Details'}
+          {showBio ? "Hide Details" : "View Details"}
         </button>
 
         {showBio && (
-          <div className="mt-4 rounded-2xl bg-muted/50 border border-border p-4">
+          <div className="mt-4 p-2">
             <p className="text-sm text-muted-foreground leading-7 text-justify">
               {member.bio}
             </p>

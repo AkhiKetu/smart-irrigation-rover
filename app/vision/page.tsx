@@ -211,7 +211,7 @@ export default function VisionPage() {
                   </p>
                 </div>
 
-                <div className="rounded-2xl bg-gradient-to-br from-emerald-500/10 to-teal-500/10 border border-emerald-500/20 p-6 flex items-center justify-center">
+                <div className="rounded-2xl p-6 flex items-center justify-center">
                   <img
                     src="/Bots/Rover-1.png"
                     alt="Smart Irrigation Rover"
@@ -256,9 +256,9 @@ export default function VisionPage() {
                   {components.map((component) => (
                     <div
                       key={component.name}
-                      className="grid grid-cols-[160px_1fr] gap-6 rounded-3xl bg-muted/50 border border-border p-6 hover:border-emerald-500/50 transition-all"
+                      className="grid grid-cols-[160px_1fr] gap-6 rounded-3xl  border border-border p-6 hover:shadow-lg hover:scale-102 transition-all"
                     >
-                      <div className="h-36 w-36 rounded-xl bg-white border border-border flex items-center justify-center overflow-hidden">
+                      <div className="h-36 w-36 rounded-xl bg-white  flex items-center justify-center overflow-hidden">
                         <img
                           src={component.image}
                           alt={component.name}

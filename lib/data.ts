@@ -7,6 +7,8 @@ export const teamMembers = [
     image: '/Team/AkhiKetu-1.png',
     email: '2210952@iub.edu.bd',
     github: 'https://github.com/AkhiKetu',
+    linkedin: 'https://www.linkedin.com/in/akhi-ketu-chakma-520b083a5/',
+    researchgate: 'https://www.researchgate.net/profile/Akhi-Chakma?ev=hdr_xprf',
   },
   {
     id: 2,
@@ -16,6 +18,8 @@ export const teamMembers = [
     image: '/Team/Zawad.jpg',
     email: '2230325@iub.edu.bd',
     github: 'https://github.com/zawadabdullah1',
+    linkedin: 'https://www.linkedin.com/in/md-jawad-abdullah-5aba63327?utm_source=share_via&utm_content=profile&utm_medium=member_android',
+    researchgate: 'https://www.researchgate.net/profile/Jawad-Abdullah-6?ev=hdr_xprf',
   },
   {
     id: 3,
@@ -25,6 +29,8 @@ export const teamMembers = [
     image: '/Team/Sojib.jpg',
     email: '2220117@iub.edu.bd',
     github: 'https://github.com/sojib-Tech',
+    linkedin: 'https://www.linkedin.com/in/shajalal-sojib-9a91703a8/',
+    researchgate: 'https://www.researchgate.net/profile/Shajalal-Sojib?ev=hdr_xprf',
   },
   {
     id: 4,
@@ -34,8 +40,10 @@ export const teamMembers = [
     image: '/Team/Gaffar.jpg',
     email: '2222752@iub.edu.bd',
     github: 'https://github.com/abdulgaffarfahim',
+    linkedin: 'https://www.linkedin.com/in/abdul-gaffar-814948415/',
+    researchgate: 'https://www.researchgate.net/profile/Abdul-Fahim-3?ev=hdr_xprf',
   },
-  {
+    {
     id: 5,
     name: 'Ashibul Islam Ashif',
     role: 'Mechanical Assembly & Hardware Testing',
@@ -43,6 +51,8 @@ export const teamMembers = [
     image: '/Team/Asif.jpg',
     email: '2230191@iub.edu.bd',
     github: 'https://github.com/asshiiff',
+    linkedin: 'https://www.linkedin.com/in/ashif-islam-442847280?utm_source=share_via&utm_content=profile&utm_medium=member_ios',
+    researchgate: 'https://www.researchgate.net/profile/Ashif-Islam-2?ev=hdr_xprf',
   },
 ];
 

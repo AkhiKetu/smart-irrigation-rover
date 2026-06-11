@@ -234,14 +234,14 @@ export default function RoboticsPage() {
             </p>
           </div>
 
-          <div className="relative rounded-3xl border border-border bg-card p-6 shadow-2xl">
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-emerald-500/10 to-teal-500/10" />
+         
+            <div className="absolute inset-0 " />
             <img
               src="/Bots/Rover-1.png"
               alt="Smart Irrigation Rover"
               className="relative w-full h-[360px] object-contain"
             />
-          </div>
+        
         </div>
       </section>
 
@@ -285,8 +285,8 @@ export default function RoboticsPage() {
               ))}
             </div>
 
-            <div className="rounded-3xl bg-card border border-border p-7 shadow-2xl h-fit sticky top-24">
-              <div className="rounded-2xl bg-white border border-border h-72 flex items-center justify-center mb-6 overflow-hidden">
+            <div className="rounded-3xl bg-card border border-border p-5 shadow-2xl h-fit sticky top-24">
+              <div className="object-contain h-72 flex items-center justify-center mb-6 overflow-hidden">
                 <img
                   src={activeRobot.image}
                   alt={activeRobot.title}
