@@ -79,7 +79,7 @@ export function ResearchSection() {
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                           {[
                             {
-                              href: "/Documents/IUB_CSE 426_Project Proposal Form.pdf",
+                              href: "/Documents/Project-Proposal-Verse-2.pdf",
                               label: "Project Proposal Form",
                               sub: "Survey, goals, block diagram, timeline, references, and team details.",
                             },
