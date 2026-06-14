@@ -212,7 +212,7 @@ const akhiPapers: Paper[] = [
     year: "2022",
     source: "Energy Nexus",
     link: "https://openaccess.city.ac.uk/id/eprint/28838/1/1-s2.0-S2772427122000791-main.pdf",
-    pdf:"hh",
+    pdf:"/PaperSummary/AkhiSummaryPapers1.pdf",
     summary:
       "Supports the IoT-based irrigation concept by explaining smart irrigation architecture, sensing, and water-saving methods.",
   },
@@ -221,6 +221,7 @@ const akhiPapers: Paper[] = [
     year: "2022",
     source: "Applied Sciences",
     link: "https://www.mdpi.com/2076-3417/12/7/3396/pdf",
+    pdf:"/PaperSummary/akhiketuSummaryPaper2.pdf",
     summary:
       "Connects with the ESP32-based IoT monitoring system and explains how smart agriculture systems collect, process, and monitor field data.",
   },
@@ -229,6 +230,7 @@ const akhiPapers: Paper[] = [
     year: "2023",
     source: "Smart Agricultural Technology",
     link: "https://www.sciencedirect.com/science/article/pii/S2772375523000783",
+    pdf:"/PaperSummary/AkhiSummaryPapers3.pdf",
     summary:
       "Supports efficient irrigation decision-making and helps justify watering only when needed.",
   },
@@ -296,6 +298,7 @@ const zawadPapers: Paper[] = [
     year: "2022",
     source: "Elsevier",
     link: "https://www.sciencedirect.com/science/article/pii/S2589721722000010?ref=pdf_download&fr=RR-2&rr=a04fa0469f57786d",
+    pdf:"/PaperSummary/jawadPaper-1.pdf",
     summary:
       "Reviews agricultural IoT technologies, including sensor-based monitoring, wireless communication, and smart farming applications.",
   },
@@ -305,6 +308,7 @@ const zawadPapers: Paper[] = [
     year: "2024",
     source: "Elsevier",
     link: "https://www.sciencedirect.com/science/article/pii/S1658077X24000110",
+    pdf:"/PaperSummary/jawadPaper-2.pdf",
     summary:
       "Presents a smart irrigation concept using IoT and cloud computing to improve agricultural productivity and food security.",
   },
@@ -314,6 +318,7 @@ const zawadPapers: Paper[] = [
     year: "2022",
     source: "IEEE",
     link: "https://ieeexplore.ieee.org/abstract/document/9716089",
+    pdf:"/PaperSummary/jawadPaper-3.pdf",
     summary:
       "Critically reviews IoT- and AI-enabled smart agriculture systems, highlighting current challenges and future research trends.",
   },
@@ -446,6 +451,7 @@ const ashifPapers: Paper[] = [
     year: "2025",
     source: "arXiv",
     link: "https://arxiv.org/abs/2507.12716",
+    pdf:"/PaperSummary/AshifPaper1.pdf",
     summary:
       "Connects AI-based decision-making with smart agriculture and autonomous farming applications.",
   },
@@ -454,6 +460,7 @@ const ashifPapers: Paper[] = [
     year: "2025",
     source: "Computers and Electronics in Agriculture",
     link: "https://www.sciencedirect.com/science/article/pii/S0168169925010385",
+    pdf:"/PaperSummary/AshifPaper2.pdf",
     summary:
       "Relates to agricultural automation and supports smart systems for monitoring and irrigation management.",
   },
@@ -462,6 +469,7 @@ const ashifPapers: Paper[] = [
     year: "2025",
     source: "Computers and Electronics in Agriculture",
     link: "https://www.sciencedirect.com/science/article/pii/S0168169925010853",
+    pdf:"/PaperSummary/AshifPaper3.pdf",
     summary:
       "Supports the monitoring side of the rover by showing how intelligent systems collect field data.",
   },
