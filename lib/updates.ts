@@ -399,6 +399,7 @@ const abdulPapers: Paper[] = [
     year: "2015",
     source: "Computers and Electronics in Agriculture",
     link: "https://www.sciencedirect.com/science/article/abs/pii/S0168169915002379",
+    pdf:"/PaperSummary/gaffarP1.pdf",
     summary:
       "Explains how agricultural sensors can monitor field conditions and support automation.",
   },
@@ -407,6 +408,7 @@ const abdulPapers: Paper[] = [
     year: "2023",
     source: "Computers and Electrical Engineering",
     link: "https://www.sciencedirect.com/science/article/abs/pii/S0045790623004767",
+    pdf:"/PaperSummary/gaffarP2.pdf",
     summary:
       "Connects with low-power agricultural monitoring for reliable sensor-based rover systems.",
   },
@@ -415,6 +417,7 @@ const abdulPapers: Paper[] = [
     year: "2022",
     source: "Computers and Electronics in Agriculture",
     link: "https://www.sciencedirect.com/science/article/abs/pii/S0168169922002459",
+    pdf:"/PaperSummary/gaffarP3.pdf",
     summary:
       "Supports the idea of using sensor data and intelligent models for agriculture-related decision-making.",
   },
@@ -520,6 +523,7 @@ const sojibPapers: Paper[] = [
     year: "2025",
     source: "Springer",
     link: "https://link.springer.com/article/10.1007/s44279-025-00430-1",
+    pdf:"/PaperSummary/sojibP1.pdf",
     summary:
       "Systematic review evaluating three-layer architectures and ML models for soil moisture prediction. Identifies edge computing and solar-powered nodes as key emerging trends.",
   },
@@ -528,6 +532,7 @@ const sojibPapers: Paper[] = [
     year: "2025",
     source: "PLOS ONE",
     link: "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0319268",
+    pdf:"/PaperSummary/sojibP2.pdf",
     summary:
       "Presents an IoT-based precision agriculture system with land mapping, crop prediction, and irrigation support.",
   },
@@ -536,6 +541,7 @@ const sojibPapers: Paper[] = [
     year: "2025",
     source: "PMC / PubMed Central",
     link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12196926/",
+    pdf:"/PaperSummary/sojibP3.pdf",
     summary:
       "Explains how IoT and AI are transforming agriculture through sensing, real-time monitoring, and data-driven decisions.",
   },
