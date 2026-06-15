@@ -184,7 +184,7 @@ export default function VisionPage() {
                       e.currentTarget.style.display = "none";
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
                   <div className="absolute left-5 bottom-4 text-4xl">
                     {card.icon}
                   </div>

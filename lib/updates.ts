@@ -80,7 +80,7 @@ export const lectures: Lecture[] = [
     materials: [
       {
         title: "Short Summary",
-        href: "dfdfdf",
+        href: "",
         type: "PDF",
       },
     ],
@@ -104,6 +104,13 @@ export const lectures: Lecture[] = [
     status: "Completed",
     description:
       "Covered basic robotics ideas, robot types, autonomous systems, sensors, actuators, and how robotics connects to our Smart Irrigation Rover.",
+            materials: [
+      {
+        title: "Short Summary",
+        href: "/Lecture/Lecture-2.pdf",
+        type: "PDF",
+      },
+    ],
   },
   {
     id: 4,
