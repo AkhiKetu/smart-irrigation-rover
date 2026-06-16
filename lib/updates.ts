@@ -237,7 +237,6 @@ const akhiPapers: Paper[] = [
     year: "2023",
     source: "Smart Agricultural Technology",
     link: "https://www.sciencedirect.com/science/article/pii/S2772375523000783",
-    pdf:"/PaperSummary/AkhiSummaryPapers3.pdf",
     summary:
       "Supports efficient irrigation decision-making and helps justify watering only when needed.",
   },
@@ -294,6 +293,7 @@ const akhiPapers: Paper[] = [
     year: "2023",
     source: "Faculty Related Paper",
     link: "https://www.researchgate.net/publication/373709780_Smart_Floor_Cleaning_Robot",
+    pdf:"/PaperSummary/AkhiSummaryPapers3.pdf",
     summary:
       "Connects with mobile robotics, motor control, obstacle handling, and autonomous movement.",
   },
