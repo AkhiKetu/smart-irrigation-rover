@@ -359,7 +359,7 @@ export default function RoboticsPage() {
         </div>
       </section>
 
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-emerald-500/10 via-background to-teal-500/10">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 from-emerald-500/10 via-background to-teal-500/10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <span className="text-sm font-bold text-emerald-600">WHAT IS NEW</span>

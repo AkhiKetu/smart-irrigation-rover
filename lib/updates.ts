@@ -133,9 +133,16 @@ export const lectures: Lecture[] = [
     date: "2026-06-17",
     displayDate: "17 June 2026",
     time: "Wednesday • 6:30 PM – 9:30 PM",
-    title: "Update Soon",
-    status: "Upcoming",
-    description: "No Data",
+    title: "Workshop on Ai Agent locally",
+    status: "Completed",
+    description: "we discussed about the Ai agent and how to use it locally for our project. We also discussed about the different types of Ai agents and their applications in robotics.",
+    materials: [
+      {
+        title: "Short Summary",
+        href: "dfdfdf",
+        type: "PDF",
+      },
+    ], 
   },
   {
     id: 6,
