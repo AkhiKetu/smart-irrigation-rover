@@ -8,7 +8,7 @@ interface UpdatesHeroProps {
 
 export function UpdatesHero({ children }: UpdatesHeroProps) {
   return (
-    <section className="relative overflow-hidden border-b border-border bg-gradient-to-br from-emerald-100/70 via-background to-teal-100/70">
+    <section className="relative overflow-hidden border-b border-border from-emerald-100/70 via-background to-teal-100/70">
       {/* Ambient blobs */}
       <div className="pointer-events-none absolute -top-32 -left-32 h-96 w-96 rounded-full bg-emerald-400/25 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-32 -right-32 h-96 w-96 rounded-full bg-teal-400/25 blur-3xl" />
@@ -19,7 +19,7 @@ export function UpdatesHero({ children }: UpdatesHeroProps) {
           Course & Research Updates
         </span>
 
-        <h1 className="text-5xl font-extrabold tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+        <h1 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
           Project Updates
         </h1>
 

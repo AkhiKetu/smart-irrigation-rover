@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function TeamPage() {
   return (
-    <div className="bg-background text-foreground">
+    <div className="bg-background border-border text-foreground">
       {/* Hero Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/50">
         <div className="max-w-6xl mx-auto text-center">

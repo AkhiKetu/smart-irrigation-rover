@@ -12,6 +12,7 @@ export function Navbar() {
     { name: 'Vision & Goals', href: '/vision' },
     { name: 'Updates', href: '/updates' },
     { name: 'Robotics', href: '/robotics' },
+    { name: 'Ai-Agent', href: '/ai-agent' },
   ];
 
   return (
@@ -21,10 +22,10 @@ export function Navbar() {
           {/* Left Logo */}
           <Link href="/" className="flex items-center gap-3 group min-w-0">
             <img
-  src="/IconWeb.png"
-  alt="Smart Irrigation Rover Logo"
-  className="h-11 w-11 rounded-xl object-cover shadow-md"
-/>
+              src="/IconWeb.png"
+              alt="Smart Irrigation Rover Logo"
+              className="h-11 w-11 rounded-xl object-cover shadow-md"
+            />
 
             <div className="flex flex-col leading-tight min-w-0">
               <span className="font-bold text-base sm:text-lg text-foreground group-hover:text-emerald-600 transition-colors truncate">
@@ -54,6 +55,7 @@ export function Navbar() {
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden inline-flex items-center justify-center p-2 rounded-lg text-foreground hover:bg-muted border border-border"
             aria-label="Toggle navigation menu"
+            type="button"
           >
             <svg
               className="w-6 h-6"
@@ -65,7 +67,11 @@ export function Navbar() {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d={isOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'}
+                d={
+                  isOpen
+                    ? 'M6 18L18 6M6 6l12 12'
+                    : 'M4 6h16M4 12h16M4 18h16'
+                }
               />
             </svg>
           </button>
