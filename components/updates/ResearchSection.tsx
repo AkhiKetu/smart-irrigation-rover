@@ -88,6 +88,18 @@ export function ResearchSection() {
                               label: "Project Overview",
                               sub: "Methodology, research questions, cost estimation, classification, and data analysis.",
                             },
+                            {
+                              href: "/Documents/Smart_Irrigation_Rover_Innovation_Poster.pdf",
+                              label: "Innovation",
+                              sub: "Details about the innovative aspects of the project.",
+
+                        },
+                          {
+                              href: "/Documents/Bangla_AI_Agent_Implementation_Poster.pdf",
+                              label: "Ai-Agent Implementation",
+                              sub: "Details about the implementation of the AI agent in the project.",
+
+                        },
                           ].map(({ href, label, sub }) => (
                             <a
                               key={label}
