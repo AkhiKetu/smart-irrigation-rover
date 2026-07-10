@@ -65,7 +65,7 @@ const robotTypes = [
     trend:
       'Autonomous mobile robots are now widely used in logistics, smart warehouses, agriculture, inspection, and delivery.',
     relation:
-      'Our Smart Irrigation Rover is directly a mobile robot because it moves across a field to check soil moisture and water dry spots.',
+      'Our Krishi Rover is directly a mobile robot because it moves across a field to check soil moisture and water dry spots.',
   },
   {
     id: 'autonomous',
@@ -224,7 +224,7 @@ export default function RoboticsPage() {
               How Robotics Connects to Smart Irrigation
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-5 text-justify">
-              The Smart Irrigation Rover is a mobile agricultural robot. It senses soil moisture,
+              The Krishi Rover is a mobile agricultural robot. It senses soil moisture,
               checks environmental conditions, avoids obstacles, moves using a 4WD platform, and
               activates a water pump only when irrigation is needed.
             </p>
@@ -238,7 +238,7 @@ export default function RoboticsPage() {
             <div className="absolute inset-0 " />
             <img
               src="/Bots/Rover-1.png"
-              alt="Smart Irrigation Rover"
+              alt="Krishi Rover"
               className="relative w-full h-[360px] object-contain"
             />
         
@@ -351,7 +351,7 @@ export default function RoboticsPage() {
               <p className="text-muted-foreground leading-relaxed mb-5">{activeIdea.text}</p>
 
               <div className="rounded-2xl bg-muted/50 border border-border p-6">
-                <h4 className="font-bold text-emerald-600 mb-2">Use in Smart Irrigation Rover</h4>
+                <h4 className="font-bold text-emerald-600 mb-2">Use in Krishi Rover</h4>
                 <p className="text-sm text-muted-foreground leading-relaxed">{activeIdea.roverUse}</p>
               </div>
             </div>

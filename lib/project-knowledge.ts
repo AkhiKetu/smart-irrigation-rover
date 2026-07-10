@@ -1,7 +1,7 @@
 export const PROJECT_CONTEXT = `
-Project Name: Smart Irrigation Rover
+Project Name: Krishi Rover
 
-This is a robotics course project website. The project is a smart irrigation rover that can help farmers by monitoring soil and environmental conditions and making irrigation decisions.
+This is a robotics course project website. The project is a Krishi Rover that can help farmers by monitoring soil and environmental conditions and making irrigation decisions.
 
 Main idea:
 - A rover moves in the field.

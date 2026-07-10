@@ -3,7 +3,7 @@ export const teamMembers = [
     id: 1,
     name: 'Akhi Ketu Chakma',
     role: 'Project Lead-1 & Full-Stack Contributor',
-    bio: 'Responsible for overseeing all aspects of the Smart Irrigation Rover project, including research, system design, hardware integration, software development, IoT implementation, documentation, website development, testing, and project management. Coordinated team activities and ensured successful progress from concept development to final implementation.',
+    bio: 'Responsible for overseeing all aspects of the Krishi Rover project, including research, system design, hardware integration, software development, IoT implementation, documentation, website development, testing, and project management. Coordinated team activities and ensured successful progress from concept development to final implementation.',
     image: '/Team/AkhiKetu-1.png',
     email: '2210952@iub.edu.bd',
     github: 'https://github.com/AkhiKetu',
@@ -57,7 +57,7 @@ export const teamMembers = [
 ];
 
 export const projectVision =
-  'Our vision is to build a low-cost smart irrigation rover that can support farmers by making watering more accurate, automatic, and efficient. Instead of watering the whole field, the rover checks soil moisture at different spots and supplies water only where the soil is dry. By combining sensors, ESP32 control, obstacle detection, IoT monitoring, and adaptive decision logic, this project shows how robotics can be used in precision agriculture to reduce water waste, save time, and make irrigation smarter for the future.';
+  'Our vision is to build a low-cost Krishi Rover that can support farmers by making watering more accurate, automatic, and efficient. Instead of watering the whole field, the rover checks soil moisture at different spots and supplies water only where the soil is dry. By combining sensors, ESP32 control, obstacle detection, IoT monitoring, and adaptive decision logic, this project shows how robotics can be used in precision agriculture to reduce water waste, save time, and make irrigation smarter for the future.';
 export const projectGoals = [
   {
     title: 'Autonomous Navigation',

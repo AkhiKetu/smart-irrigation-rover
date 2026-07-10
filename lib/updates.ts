@@ -1,7 +1,7 @@
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 export type LectureStatus = "Completed" | "Closed" | "Upcoming" | "Mid Week";
-export type FilterType = "all" | "lecture" | "team" | "related";
+export type FilterType = "all" | "lecture" | "team" | "related"|"assignments";
 
 export interface Lecture {
   id: number;
@@ -103,7 +103,7 @@ export const lectures: Lecture[] = [
     title: "Basic Introduction to Robotics",
     status: "Completed",
     description:
-      "Covered basic robotics ideas, robot types, autonomous systems, sensors, actuators, and how robotics connects to our Smart Irrigation Rover.",
+      "Covered basic robotics ideas, robot types, autonomous systems, sensors, actuators, and how robotics connects to our Krishi Rover.",
             materials: [
       {
         title: "Short Summary",
@@ -149,30 +149,39 @@ export const lectures: Lecture[] = [
     date: "2026-06-24",
     displayDate: "24 June 2026",
     time: "Wednesday • 6:30 PM – 9:30 PM",
-    title: "Update Soon",
-    status: "Upcoming",
-    description: "No Data",
+    title: "Workshop on Hardware components and we show our project progress",
+    status: "Completed",
+    description: "We discussed about the different hardware components used in our project and how to use them. We also showed our project progress and received feedback from the instructor.",
   },
   {
     id: 7,
     date: "2026-07-01",
     displayDate: "01 July 2026",
     time: "Wednesday • 6:30 PM – 9:30 PM",
-    title: "Update Soon",
-    status: "Mid Week",
-    description: "No Data",
+    title: "Class on the Assignment and Midterm Exam Preparation",
+    status: "Completed",
+    description: "We discussed about the assignment and midterm exam preparation. We also discussed about the different types of questions that can be asked in the exam and how to prepare for them.",
   },
   {
     id: 8,
     date: "2026-07-08",
     displayDate: "08 July 2026",
     time: "Wednesday • 6:30 PM – 9:30 PM",
-    title: "Update Soon",
-    status: "Upcoming",
-    description: "No Data",
+    title: "Class Closed Due to weather conditions",
+    status: "Closed",
+    description: "Mid term exam was postponed due to bad weather conditions. The mid exam Taken by 10th July 2026. The class was closed on 8th July 2026.",
   },
   {
     id: 9,
+    date: "2026-07-10",
+    displayDate: "10 July 2026",
+    time: "Wednesday • 11:20 AM – 12.50 PM",
+    title: "Mid Exam Conducted",
+    status: "Mid Week",
+    description: "Mid term exam was conducted on 10th July 2026. The exam was based on the topics covered in the previous classes. The students were given 1.3 hours to complete the exam.",
+  },
+  {
+    id: 10,
     date: "2026-07-15",
     displayDate: "15 July 2026",
     time: "Wednesday • 6:30 PM – 9:30 PM",
@@ -181,7 +190,7 @@ export const lectures: Lecture[] = [
     description: "No Data",
   },
   {
-    id: 10,
+    id: 11,
     date: "2026-07-22",
     displayDate: "22 July 2026",
     time: "Wednesday • 6:30 PM – 9:30 PM",
@@ -190,7 +199,7 @@ export const lectures: Lecture[] = [
     description: "No Data",
   },
   {
-    id: 11,
+    id: 12,
     date: "2026-07-29",
     displayDate: "29 July 2026",
     time: "Wednesday • 6:30 PM – 9:30 PM",
@@ -199,7 +208,7 @@ export const lectures: Lecture[] = [
     description: "No Data",
   },
   {
-    id: 12,
+    id: 13,
     date: "2026-08-05",
     displayDate: "05 August 2026",
     time: "Wednesday • 6:30 PM – 9:30 PM",
@@ -208,7 +217,7 @@ export const lectures: Lecture[] = [
     description: "No Data",
   },
   {
-    id: 13,
+    id: 14,
     date: "2026-08-12",
     displayDate: "12 August 2026",
     time: "Wednesday • 6:30 PM – 9:30 PM",
@@ -679,14 +688,14 @@ export const researchItems: ResearchItem[] = [
     title: "Research Questions",
     status: "Completed",
     summary:
-      "Key research questions were developed to guide the Smart Irrigation Rover project.",
+      "Key research questions were developed to guide the Krishi Rover project.",
     details: [
       "How can soil moisture sensing identify areas that require irrigation?",
       "How can a mobile rover improve flexibility compared to fixed irrigation systems?",
       "How useful is IoT monitoring for observing soil and environmental data?",
       "How can obstacle detection support safer autonomous movement?",
       "How can adaptive spot watering reduce unnecessary water usage?",
-      "What are the challenges of developing a low-cost smart irrigation rover?",
+      "What are the challenges of developing a low-cost Krishi Rover?",
     ],
   },
   {
@@ -711,7 +720,7 @@ export const researchItems: ResearchItem[] = [
       "Literature review showed a gap in mobile adaptive irrigation systems",
       "Survey responses supported interest in automated irrigation",
       "Component cost analysis showed the prototype is financially feasible",
-      "Analysis supports the development of a low-cost Smart Irrigation Rover",
+      "Analysis supports the development of a low-cost Krishi Rover",
     ],
   },
   {
@@ -721,7 +730,7 @@ export const researchItems: ResearchItem[] = [
       "Official project proposal and project overview documents are available here for viewing.",
     details: [
       "CSE 426 Project Proposal Form",
-      "Smart Irrigation Rover Project Overview",
+      "Krishi Rover Project Overview",
     ],
     hasDocuments: true,
   },

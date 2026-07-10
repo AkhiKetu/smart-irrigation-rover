@@ -24,13 +24,20 @@ const filters: { label: string; value: FilterType }[] = [
     label: "Research Related",
     value: "related",
   },
+  {
+    label: "Assignments",
+    value: "assignments",
+  },
 ];
 
-export function FilterBar({ activeFilter, setActiveFilter }: FilterBarProps) {
+export function FilterBar({
+  activeFilter,
+  setActiveFilter,
+}: FilterBarProps) {
   return (
     <div className="w-full bg-transparent">
-      <div className="mx-auto flex max-w-6xl justify-center px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap items-center justify-center gap-4">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {filters.map((filter) => {
             const isActive = activeFilter === filter.value;
 
@@ -39,24 +46,24 @@ export function FilterBar({ activeFilter, setActiveFilter }: FilterBarProps) {
                 key={filter.value}
                 type="button"
                 onClick={() => setActiveFilter(filter.value)}
-                className="min-w-[230px] rounded-2xl border px-8 py-4 text-base font-bold shadow-sm transition-all duration-300"
+                className="w-full rounded-2xl border px-5 py-4 text-base font-bold shadow-sm transition-all duration-300"
                 style={{
                   backgroundColor: isActive ? "#059669" : "#ffffff",
                   color: isActive ? "#ffffff" : "#000000",
                   borderColor: isActive ? "#059669" : "#e5e7eb",
                 }}
-                onMouseEnter={(e) => {
+                onMouseEnter={(event) => {
                   if (!isActive) {
-                    e.currentTarget.style.backgroundColor = "#d1fae5";
-                    e.currentTarget.style.color = "#047857";
-                    e.currentTarget.style.borderColor = "#34d399";
+                    event.currentTarget.style.backgroundColor = "#d1fae5";
+                    event.currentTarget.style.color = "#047857";
+                    event.currentTarget.style.borderColor = "#34d399";
                   }
                 }}
-                onMouseLeave={(e) => {
+                onMouseLeave={(event) => {
                   if (!isActive) {
-                    e.currentTarget.style.backgroundColor = "#ffffff";
-                    e.currentTarget.style.color = "#000000";
-                    e.currentTarget.style.borderColor = "#e5e7eb";
+                    event.currentTarget.style.backgroundColor = "#ffffff";
+                    event.currentTarget.style.color = "#000000";
+                    event.currentTarget.style.borderColor = "#e5e7eb";
                   }
                 }}
               >

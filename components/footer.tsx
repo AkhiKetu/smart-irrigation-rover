@@ -10,11 +10,11 @@ export function Footer() {
             <div className="flex items-center gap-2 mb-4">
               <img
                 src="/IconWeb.png"
-                alt="Smart Irrigation Rover Logo"
+                alt="Krishi Rover Logo"
                 className="h-10 w-10 rounded-xl object-cover"
               />
               <span className="font-bold text-foreground">
-                Smart Irrigation Rover
+                Krishi Rover
               </span>
             </div>
             <p className="text-sm text-muted-foreground">
@@ -84,7 +84,7 @@ export function Footer() {
 
         <div className="border-t border-border pt-8">
           <p className="text-center text-sm text-muted-foreground">
-            © {currentYear} Smart Irrigation Rover Team. All rights reserved.
+            © {currentYear} Krishi Rover Team. All rights reserved.
           </p>
         </div>
       </div>

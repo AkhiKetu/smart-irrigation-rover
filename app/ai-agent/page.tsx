@@ -6,7 +6,7 @@ export default function AiAgentPage() {
       <section className="px-4 pt-24 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl text-center">
           <div className="mb-4 inline-flex rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-2 text-sm font-medium text-emerald-600">
-            Smart Irrigation Rover AI
+            Krishi Rover AI
           </div>
 
           <h1 className="text-3xl font-bold tracking-tight sm:text-5xl lg:text-6xl">

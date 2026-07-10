@@ -96,7 +96,7 @@ const roadmap = [
     phase: "August Week 2",
     title: "Final Presentation",
     description:
-      "Demonstrate the Smart Irrigation Rover, present results, submit documentation, and complete evaluation.",
+      "Demonstrate the Krishi Rover, present results, submit documentation, and complete evaluation.",
   },
 ];
 
@@ -144,7 +144,7 @@ export default function VisionPage() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-emerald-500/10 via-background to-teal-500/10">
         <div className="max-w-6xl mx-auto text-center">
           <span className="inline-block mb-5 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 text-sm font-semibold">
-            Smart Irrigation Rover
+            Krishi Rover
           </span>
 
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">
@@ -220,7 +220,7 @@ export default function VisionPage() {
                 <div className="rounded-2xl p-6 flex items-center justify-center">
                   <img
                     src="/Bots/Rover-1.png"
-                    alt="Smart Irrigation Rover"
+                    alt="Krishi Rover"
                     className="max-h-72 w-full object-contain"
                   />
                 </div>

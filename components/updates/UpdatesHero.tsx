@@ -25,7 +25,7 @@ export function UpdatesHero({ children }: UpdatesHeroProps) {
 
         <p className="mt-6 max-w-2xl text-center text-base leading-8 text-muted-foreground sm:text-lg">
           Lecture timeline, team research papers, and research-related project
-          planning for the Smart Irrigation Rover.
+          planning for the Krishi Rover.
         </p>
 
         {children && <div className="mt-10 w-full">{children}</div>}

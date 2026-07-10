@@ -23,13 +23,13 @@ export function Navbar() {
           <Link href="/" className="flex items-center gap-3 group min-w-0">
             <img
               src="/IconWeb.png"
-              alt="Smart Irrigation Rover Logo"
+              alt="Krishi Rover Logo"
               className="h-11 w-11 rounded-xl object-cover shadow-md"
             />
 
             <div className="flex flex-col leading-tight min-w-0">
               <span className="font-bold text-base sm:text-lg text-foreground group-hover:text-emerald-600 transition-colors truncate">
-                Smart Irrigation Rover
+                krishi Rover
               </span>
               <span className="hidden sm:block text-xs text-muted-foreground">
                 Adaptive Spot Watering

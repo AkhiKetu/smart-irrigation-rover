@@ -2,8 +2,8 @@ import { TeamCard } from '@/components/team-card';
 import { teamMembers } from '@/lib/data';
 
 export const metadata = {
-  title: 'Meet Our Team | Smart Irrigation Rover',
-  description: '5-member development team leading the Smart Irrigation Rover project',
+  title: 'Meet Our Team | Krishi Rover',
+  description: '5-member development team leading the Krishi Rover project',
 };
 
 export default function TeamPage() {
@@ -15,7 +15,7 @@ export default function TeamPage() {
           <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-foreground">Meet Our Team</h1>
           <div className="w-16 h-1 bg-gradient-to-r from-emerald-500 to-teal-600 mx-auto mb-6" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Five dedicated engineers working together to bring the Smart Irrigation Rover to life through innovation, collaboration, and technical excellence.
+            Five dedicated engineers working together to bring the Krishi Rover to life through innovation, collaboration, and technical excellence.
           </p>
         </div>
       </section>

@@ -5,9 +5,9 @@ import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 
 export const metadata: Metadata = {
-  title: 'Smart Irrigation Rover',
+  title: 'Krishi-Rover',
   description:
-    'An autonomous smart irrigation rover for adaptive spot watering using soil moisture sensing, obstacle detection, IoT monitoring, and precision irrigation.',
+    'An autonomous Krishi Rover for adaptive spot watering using soil moisture sensing, obstacle detection, IoT monitoring, and precision irrigation.',
   generator: 'v0.app',
 
   icons: {

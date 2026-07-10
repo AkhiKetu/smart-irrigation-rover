@@ -34,14 +34,14 @@ export default function Home() {
           </div>
 
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 text-balance">
-            Smart Irrigation{" "}
+            Krishi{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-600">
               Rover
             </span>
           </h1>
 
           <p className="text-xl sm:text-2xl text-muted-foreground mb-8 text-balance leading-relaxed">
-            An autonomous smart irrigation rover designed with soil moisture
+            An autonomous Krishi Rover designed with soil moisture
             sensing, obstacle detection, IoT monitoring, and adaptive spot
             watering to supply water only where it is needed.
           </p>
@@ -74,7 +74,7 @@ export default function Home() {
 
             <img
               src={roverImages[currentImage]}
-              alt="Smart Irrigation Rover 3D Model"
+              alt="Krishi Rover 3D Model"
               className="h-full w-auto object-contain transition-all duration-700"
             />
 
