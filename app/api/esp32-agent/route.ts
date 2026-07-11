@@ -11,7 +11,7 @@ const groq = new Groq({
 export async function GET() {
   return NextResponse.json({
     ok: true,
-    message: "ESP32 Agent API is working",
+    message: "ESP32 Bangla Agent API is working",
   });
 }
 
@@ -38,22 +38,23 @@ export async function POST(req: Request) {
 
     const completion = await groq.chat.completions.create({
       model: process.env.GROQ_MODEL || "llama-3.3-70b-versatile",
-      temperature: 0.35,
-      max_tokens: 120,
+      temperature: 0.25,
+      max_tokens: 80,
       messages: [
         {
           role: "system",
           content: `
 তোমার নাম "সেচবন্ধু"।
 
-তুমি Krishi Rover project-এর একজন খাঁটি বাংলা ভয়েস AI assistant।
+তুমি Krishi Rover project-এর বাংলা ভয়েস AI assistant।
 
 কঠোর নিয়ম:
-- সবসময় শুধুমাত্র বাংলা ভাষায় উত্তর দেবে।
+- শুধুমাত্র বাংলা ভাষায় উত্তর দেবে।
+- উত্তর অবশ্যই ১টি ছোট সম্পূর্ণ বাক্যে দেবে।
+- সর্বোচ্চ ২০ শব্দ ব্যবহার করবে।
+- বাক্য কখনো অসম্পূর্ণ রাখবে না।
 - Banglish ব্যবহার করবে না।
-- উত্তর ছোট, স্পষ্ট এবং মানুষের মতো স্বাভাবিক বাংলায় দেবে।
-- ESP32 speaker-এর জন্য উত্তর ১ থেকে ২ বাক্যের মধ্যে রাখবে।
-- ভয়েসে পড়ার জন্য সহজ বাংলা বাক্য ব্যবহার করবে।
+- English শব্দ ব্যবহার করবে না, যদি একেবারে প্রয়োজন না হয়।
 - Project সম্পর্কে প্রশ্ন করলে নিচের context থেকে উত্তর দেবে।
 - কিছু জানা না থাকলে বানিয়ে বলবে না।
 - যদি কোনো তথ্য project context-এ না থাকে, বলবে: "এই তথ্যটি এখনো আমার প্রকল্প জ্ঞানে যোগ করা হয়নি।"
@@ -70,16 +71,54 @@ ${PROJECT_CONTEXT}
       ],
     });
 
-    const reply =
+    let reply =
       completion.choices[0]?.message?.content?.trim() ||
       "দুঃখিত, আমি এখন উত্তর তৈরি করতে পারছি না।";
+
+    // Clean reply for ESP32 and Bangla TTS
+    reply = reply
+      .replace(/\s+/g, " ")
+      .replace(/["“”]/g, "")
+      .trim();
+
+    // Make sure reply ends properly
+    if (
+      reply &&
+      !reply.endsWith("।") &&
+      !reply.endsWith("?") &&
+      !reply.endsWith("!") &&
+      !reply.endsWith("ঃ")
+    ) {
+      reply += "।";
+    }
+
+    // Extra safety: keep TTS short, but do not cut awkwardly if possible
+    if (reply.length > 120) {
+      const shortReply = reply.slice(0, 115);
+      const lastStop = Math.max(
+        shortReply.lastIndexOf("।"),
+        shortReply.lastIndexOf("?"),
+        shortReply.lastIndexOf("!")
+      );
+
+      if (lastStop > 20) {
+        reply = shortReply.slice(0, lastStop + 1).trim();
+      } else {
+        reply = shortReply.trim();
+
+        if (!reply.endsWith("।")) {
+          reply += "।";
+        }
+      }
+    }
 
     const baseUrl =
       process.env.NEXT_PUBLIC_SITE_URL ||
       "https://smart-irrigation-rover.vercel.app";
 
-    const ttsUrl =
-      `${baseUrl}/api/bangla-tts?text=${encodeURIComponent(reply)}`;
+    const ttsUrl = `${baseUrl}/api/bangla-tts?text=${encodeURIComponent(
+      reply
+    )}`;
 
     return NextResponse.json({
       reply,
