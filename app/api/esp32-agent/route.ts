@@ -8,6 +8,39 @@ const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY,
 });
 
+function makeShortCompleteBanglaReply(text: string) {
+  let reply = text
+    .replace(/\s+/g, " ")
+    .replace(/["“”]/g, "")
+    .trim();
+
+  // Take only the first complete Bengali sentence
+  const dandaIndex = reply.indexOf("।");
+  const questionIndex = reply.indexOf("?");
+  const exclamationIndex = reply.indexOf("!");
+
+  const stops = [dandaIndex, questionIndex, exclamationIndex].filter(
+    (index) => index >= 0
+  );
+
+  if (stops.length > 0) {
+    const firstStop = Math.min(...stops);
+    reply = reply.slice(0, firstStop + 1).trim();
+  }
+
+  // If no full stop exists, keep it short but complete with danda
+  if (!reply.endsWith("।") && !reply.endsWith("?") && !reply.endsWith("!")) {
+    reply += "।";
+  }
+
+  // Final safety: if still too long, use a fixed project reply
+  if (reply.length > 95) {
+    reply = "কৃষি রোভার মাটি ও পরিবেশ পর্যবেক্ষণ করে সেচের সিদ্ধান্তে সাহায্য করে।";
+  }
+
+  return reply;
+}
+
 export async function GET() {
   return NextResponse.json({
     ok: true,
@@ -38,8 +71,8 @@ export async function POST(req: Request) {
 
     const completion = await groq.chat.completions.create({
       model: process.env.GROQ_MODEL || "llama-3.3-70b-versatile",
-      temperature: 0.25,
-      max_tokens: 80,
+      temperature: 0.2,
+      max_tokens: 60,
       messages: [
         {
           role: "system",
@@ -51,14 +84,12 @@ export async function POST(req: Request) {
 কঠোর নিয়ম:
 - শুধুমাত্র বাংলা ভাষায় উত্তর দেবে।
 - উত্তর অবশ্যই ১টি ছোট সম্পূর্ণ বাক্যে দেবে।
-- সর্বোচ্চ ২০ শব্দ ব্যবহার করবে।
-- বাক্য কখনো অসম্পূর্ণ রাখবে না।
+- সর্বোচ্চ ১৫ শব্দ ব্যবহার করবে।
+- বাক্য অসম্পূর্ণ রাখবে না।
 - Banglish ব্যবহার করবে না।
-- English শব্দ ব্যবহার করবে না, যদি একেবারে প্রয়োজন না হয়।
 - Project সম্পর্কে প্রশ্ন করলে নিচের context থেকে উত্তর দেবে।
 - কিছু জানা না থাকলে বানিয়ে বলবে না।
-- যদি কোনো তথ্য project context-এ না থাকে, বলবে: "এই তথ্যটি এখনো আমার প্রকল্প জ্ঞানে যোগ করা হয়নি।"
-- ESP32 control এখনো future integration, তাই বাস্তবে command execute হয়েছে এমন বলবে না।
+- ESP32 control এখনো future integration, তাই command execute হয়েছে এমন বলবে না।
 
 Project Context:
 ${PROJECT_CONTEXT}
@@ -71,46 +102,11 @@ ${PROJECT_CONTEXT}
       ],
     });
 
-    let reply =
+    const aiReply =
       completion.choices[0]?.message?.content?.trim() ||
       "দুঃখিত, আমি এখন উত্তর তৈরি করতে পারছি না।";
 
-    // Clean reply for ESP32 and Bangla TTS
-    reply = reply
-      .replace(/\s+/g, " ")
-      .replace(/["“”]/g, "")
-      .trim();
-
-    // Make sure reply ends properly
-    if (
-      reply &&
-      !reply.endsWith("।") &&
-      !reply.endsWith("?") &&
-      !reply.endsWith("!") &&
-      !reply.endsWith("ঃ")
-    ) {
-      reply += "।";
-    }
-
-    // Extra safety: keep TTS short, but do not cut awkwardly if possible
-    if (reply.length > 120) {
-      const shortReply = reply.slice(0, 115);
-      const lastStop = Math.max(
-        shortReply.lastIndexOf("।"),
-        shortReply.lastIndexOf("?"),
-        shortReply.lastIndexOf("!")
-      );
-
-      if (lastStop > 20) {
-        reply = shortReply.slice(0, lastStop + 1).trim();
-      } else {
-        reply = shortReply.trim();
-
-        if (!reply.endsWith("।")) {
-          reply += "।";
-        }
-      }
-    }
+    const reply = makeShortCompleteBanglaReply(aiReply);
 
     const baseUrl =
       process.env.NEXT_PUBLIC_SITE_URL ||
