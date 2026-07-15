@@ -1,60 +1,82 @@
-interface ProjectUpdate {
+interface ProjectMedia {
   id: number;
-  title: string;
-  description: string;
-  date: string;
-  image?: string;
-  video?: string;
+  type: "image" | "video";
+  source: string;
+  caption: string;
+  alt: string;
 }
 
-const projectUpdates: ProjectUpdate[] = [
+const projectMedia: ProjectMedia[] = [
   {
     id: 1,
-    title: "Rover Chassis Assembly",
-    description:
-      "The 4WD rover chassis was assembled by installing the motors, wheels, battery holder, and supporting frame.",
-    date: "July 2026",
-    image: "/Project-Updates/rover-assembly.jpg",
+    type: "image",
+    source: "/Project Updates/runningMotorAndDriver.jpeg",
+    alt: "Krishi Rover chassis assembly",
+    caption:
+      "Fig. 1: Initial assembly of the 4WD Krishi Rover chassis with motors, wheels, motor driver, ESP32, battery, and connecting wires.",
   },
   {
     id: 2,
-    title: "Motor Driver Connection",
-    description:
-      "The DC motors were connected to the L298N motor driver, allowing the ESP32 to control the rover's movement and direction.",
-    date: "July 2026",
-    image: "/Project-Updates/motor-connection.jpg",
+    type: "image",
+    source: "/Project Updates/TestUltraAndMicrophone.jpeg",
+    alt: "Testing the three Ultrasonic sensors and the microphone sensor on the Krishi Rover",
+    caption:
+      "Fig. 2: Testing the three Ultrasonic sensors and the microphone sensor on the Krishi Rover for obstacle detection and sound detection.",
   },
   {
     id: 3,
-    title: "Sensor Installation",
-    description:
-      "Ultrasonic, soil-moisture, temperature, and humidity sensors were installed for obstacle detection and agricultural monitoring.",
-    date: "July 2026",
-    image: "/Project-Updates/sensor-installation.jpg",
+    type: "image",
+    source: "/Project Updates/TestUltrasonic-1.jpeg",
+    alt: "Testing the ultrasonic and obstacle detection.",
+    caption:
+      "Fig. 3: Testing the ultrasonic and obstacle detection and the motor movement",
   },
   {
     id: 4,
-    title: "Hardware Testing",
-    description:
-      "The assembled hardware was tested to verify motor movement, sensor readings, irrigation control, and ESP32 communication.",
-    date: "July 2026",
-    image: "/Project-Updates/hardware-testing.jpg",
+    type: "video",
+    source: "/Project Updates/TestingL,R,F-Ultrasonic.mp4",
+    alt: "Testing the assmbled ultrasonic sensors and the motor movement of the Krishi Rover",
+    caption:
+      "Fig. 4: Testing the assembled ultrasonic sensors and the motor movement of the Krishi Rover.",
   },
-
+    {
+    id: 5,
+    type: "video",
+    source: "/Project Updates/TestingTheMotor.mp4",
+    alt: "Testing the motors and the movement of the Krishi Rover",
+    caption:
+      "Fig. 5: Testing the motors and the movement of the Krishi Rover.",
+  },
+      {
+    id: 6,
+    type: "image",
+    source: "/Project Updates/Agent-Work.png",
+    alt: "Diagram of how Ai Agent-Bangla voice works with the Krishi Rover",
+    caption:
+      "Fig. 6: Diagram showing the integration of the AI Agent-Bangla voice with the Krishi Rover.",
+  },
+      {
+    id: 7,
+    type: "video",
+    source: "/Project Updates/Ai-Agent.mp4",
+    alt: "Ai-Agent-Bangla voice working with the Krishi Rover",
+    caption:
+      "Fig. 7: Video demonstrating the Ai-Agent-Bangla voice working with the Krishi Rover.",
+  },
   // Future video example:
   // {
   //   id: 5,
-  //   title: "Rover Movement Test",
-  //   description:
-  //     "This video demonstrates the rover's movement, obstacle detection, and automatic navigation.",
-  //   date: "August 2026",
-  //   video: "/Project-Updates/rover-testing.mp4",
+  //   type: "video",
+  //   source: "/Project-Updates/rover-testing.mp4",
+  //   alt: "Krishi Rover movement test",
+  //   caption:
+  //     "Fig. 5: Testing the movement, obstacle detection, and automatic navigation functions of the Krishi Rover.",
   // },
 ];
 
 export function ProjectUpdateSection() {
   return (
-    <section className="bg-muted/40 px-4 py-16 sm:px-6 lg:px-8">
+    <section className="bg-background px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto w-full max-w-6xl">
         <div className="mb-12 text-center">
           <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-emerald-600">
@@ -66,58 +88,42 @@ export function ProjectUpdateSection() {
           </h2>
 
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Images, explanations, and videos showing the hardware assembly,
-            testing process, and development progress of the Krishi Rover.
+            Images and videos showing the assembly, development, and testing of
+            the Krishi Rover.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-          {projectUpdates.map((update) => (
-            <article
-              key={update.id}
-              className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/40 hover:shadow-xl"
-            >
-              <div className="relative aspect-video overflow-hidden bg-muted">
-                {update.image && (
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+          {projectMedia.map((media) => (
+            <figure key={media.id} className="w-full">
+              <div className="overflow-hidden ">
+                {media.type === "image" ? (
                   <img
-                    src={update.image}
-                    alt={update.title}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    src={media.source}
+                    alt={media.alt}
+                    className="h-auto max-h-[520px] w-full object-contain"
+                    loading="lazy"
                   />
-                )}
-
-                {update.video && (
+                ) : (
                   <video
                     controls
                     preload="metadata"
-                    className="h-full w-full object-cover"
+                    className="h-auto max-h-[520px] w-full object-contain"
+                    aria-label={media.alt}
                   >
-                    <source src={update.video} type="video/mp4" />
+                    <source src={media.source} type="video/mp4" />
                     Your browser does not support video playback.
                   </video>
                 )}
               </div>
 
-              <div className="p-6">
-                <div className="mb-3 flex items-center justify-between gap-4">
-                  <span className="rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-bold text-emerald-700">
-                    {update.video ? "VIDEO UPDATE" : "HARDWARE UPDATE"}
-                  </span>
-
-                  <span className="text-sm text-muted-foreground">
-                    {update.date}
-                  </span>
-                </div>
-
-                <h3 className="mb-3 text-xl font-bold text-foreground">
-                  {update.title}
-                </h3>
-
-                <p className="text-justify text-sm leading-6 text-muted-foreground">
-                  {update.description}
-                </p>
-              </div>
-            </article>
+              <figcaption className="mt-3 text-justify text-sm leading-6 text-muted-foreground">
+                <span className="font-semibold text-foreground">
+                  {media.caption.split(":")[0]}:
+                </span>
+                {media.caption.substring(media.caption.indexOf(":") + 1)}
+              </figcaption>
+            </figure>
           ))}
         </div>
       </div>

@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import { PROJECT_CONTEXT } from "@/lib/project-knowledge";
 
 export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY,
@@ -12,13 +13,21 @@ function fixedReply(message: string) {
   const q = message.toLowerCase();
 
   if (
+    q.includes("হ্যালো") ||
+    q.includes("hello") ||
+    q.includes("কেমন")
+  ) {
+    return "আমি ভালো আছি। আমি সেচবন্ধু।";
+  }
+
+  if (
     q.includes("টিম") ||
     q.includes("team") ||
     q.includes("মেম্বার") ||
     q.includes("সদস্য") ||
     q.includes("নাম")
   ) {
-    return "আমাদের টিমে আছেন আখি কেতু চাকমা, মোঃ জাওয়াদ আব্দুল্লাহ, সজিব, আসিফ এবং ফাহিম। আখি কেতু চাকমা তিনি প্রজেক্ট লিড ও ফুল স্ট্যাক কন্ট্রিবিউটর। ";
+    return "আমাদের টিমে আছেন আখি, জাওয়াদ, সজিব, আসিফ এবং ফাহিম।";
   }
 
   if (
@@ -29,7 +38,7 @@ function fixedReply(message: string) {
     q.includes("idea") ||
     q.includes("আইডিয়া")
   ) {
-    return "কৃষি রোভার মাটি ও পরিবেশ পর্যবেক্ষণ করে সেচের সিদ্ধান্তে সাহায্য করে। এটি কৃষকদের সময় ও পানি বাঁচাতে সহায়তা করে।";
+    return "কৃষি রোভার মাটি ও পরিবেশ পর্যবেক্ষণ করে সেচে সাহায্য করে।";
   }
 
   if (
@@ -38,7 +47,7 @@ function fixedReply(message: string) {
     q.includes("moisture") ||
     q.includes("শুকনা")
   ) {
-    return "মাটি শুকনা হলে কৃষি রোভার সেন্সরের তথ্য দেখে সেচের প্রয়োজন বুঝতে সাহায্য করে।";
+    return "মাটি শুকনা হলে কৃষি রোভার সেচের প্রয়োজন বুঝতে সাহায্য করে।";
   }
 
   if (
@@ -47,7 +56,7 @@ function fixedReply(message: string) {
     q.includes("water") ||
     q.includes("irrigation")
   ) {
-    return "কৃষি রোভার সঠিক সময়ে সেচ দিতে সাহায্য করে, তাই পানি অপচয় কমে।";
+    return "কৃষি রোভার সঠিক সময়ে সেচ দিতে সাহায্য করে।";
   }
 
   if (
@@ -56,7 +65,15 @@ function fixedReply(message: string) {
     q.includes("temperature") ||
     q.includes("humidity")
   ) {
-    return "কৃষি রোভার সেন্সর দিয়ে মাটি, তাপমাত্রা এবং আর্দ্রতার তথ্য সংগ্রহ করে।";
+    return "কৃষি রোভার মাটি, তাপমাত্রা এবং আর্দ্রতার তথ্য সংগ্রহ করে।";
+  }
+
+  if (
+    q.includes("মাইক্রোফোন") ||
+    q.includes("microphone") ||
+    q.includes("mic")
+  ) {
+    return "অনবোর্ড মাইক ঠিকভাবে কাজ না করায় আমরা ল্যাপটপ মাইক ব্যবহার করেছি।";
   }
 
   return null;
@@ -67,6 +84,15 @@ function cleanReply(text: string) {
     .replace(/\s+/g, " ")
     .replace(/["“”]/g, "")
     .trim();
+
+  // Keep ESP32 answer short
+  if (reply.length > 85) {
+    reply = reply.slice(0, 85).trim();
+  }
+
+  // Remove broken ending words if needed
+  reply = reply.replace(/আমি ক$/, "আমি সাহায্য করি");
+  reply = reply.replace(/আমি আপ$/, "আমি সাহায্য করি");
 
   if (!reply.endsWith("।") && !reply.endsWith("?") && !reply.endsWith("!")) {
     reply += "।";
@@ -109,8 +135,8 @@ export async function POST(req: Request) {
     if (!reply) {
       const completion = await groq.chat.completions.create({
         model: process.env.GROQ_MODEL || "llama-3.3-70b-versatile",
-        temperature: 0.25,
-        max_tokens: 120,
+        temperature: 0.2,
+        max_tokens: 50,
         messages: [
           {
             role: "system",
@@ -122,12 +148,11 @@ export async function POST(req: Request) {
 নিয়ম:
 - শুধুমাত্র বাংলা ভাষায় উত্তর দেবে।
 - Banglish ব্যবহার করবে না।
-- উত্তর ছোট ও পরিষ্কার রাখবে।
-- ১ থেকে ২টি বাক্যে উত্তর দেবে।
-- বাক্য অসম্পূর্ণ রাখবে না।
-- Project সম্পর্কে প্রশ্ন করলে নিচের context থেকে উত্তর দেবে।
+- ESP32 speaker-এর জন্য খুব ছোট উত্তর দেবে।
+- সর্বোচ্চ ১টি ছোট বাক্যে উত্তর দেবে।
+- উত্তর ৮০ অক্ষরের বেশি হবে না।
+- অসম্পূর্ণ বাক্য দেবে না।
 - কিছু জানা না থাকলে বানিয়ে বলবে না।
-- যদি কোনো তথ্য project context-এ না থাকে, বলবে: "এই তথ্যটি এখনো আমার প্রকল্প জ্ঞানে যোগ করা হয়নি।"
 
 Project Context:
 ${PROJECT_CONTEXT}
@@ -142,15 +167,14 @@ ${PROJECT_CONTEXT}
 
       reply =
         completion.choices[0]?.message?.content?.trim() ||
-        "দুঃখিত, আমি এখন উত্তর তৈরি করতে পারছি না।";
+        "দুঃখিত, আমি এখন উত্তর দিতে পারছি না।";
     }
 
     reply = cleanReply(reply);
 
     const origin = new URL(req.url).origin;
 
-    // Important fix:
-    // Add small sound/pause before real reply so ESP32 speaker does not cut first words.
+    // Warm-up word prevents first word cut on ESP32 speaker
     const ttsText = "শুনুন। " + reply;
 
     const ttsUrl = `${origin}/api/bangla-tts?text=${encodeURIComponent(
