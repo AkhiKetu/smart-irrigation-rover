@@ -1,7 +1,7 @@
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 export type LectureStatus = "Completed" | "Closed" | "Upcoming" | "Mid Week";
-export type FilterType = "all" | "lecture" | "team" | "related"|"assignments";
+export type FilterType = "all" | "lecture" | "team" | "related"|"assignments"|"Project";
 
 export interface Lecture {
   id: number;

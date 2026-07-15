@@ -20,7 +20,7 @@ export function UpdatesHero({ children }: UpdatesHeroProps) {
         </span>
 
         <h1 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-          Project Updates
+          Updates
         </h1>
 
         <p className="mt-6 max-w-2xl text-center text-base leading-8 text-muted-foreground sm:text-lg">

@@ -2,11 +2,25 @@ import { NextRequest, NextResponse } from "next/server";
 import { getAllAudioUrls, getAudioUrl } from "google-tts-api";
 
 export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 type TTSResult = {
   shortText: string;
   url: string;
 };
+
+const audioCache = new Map<string, Buffer>();
+
+function audioResponse(audioBuffer: Buffer) {
+  return new NextResponse(new Uint8Array(audioBuffer), {
+    status: 200,
+    headers: {
+      "Content-Type": "audio/mpeg",
+      "Content-Length": String(audioBuffer.length),
+      "Cache-Control": "no-store",
+    },
+  });
+}
 
 export async function GET(req: NextRequest) {
   try {
@@ -20,7 +34,7 @@ export async function GET(req: NextRequest) {
       });
     }
 
-    const cleanText = text.replace(/\s+/g, " ").trim().slice(0, 200);
+    const cleanText = text.replace(/\s+/g, " ").trim().slice(0, 160);
 
     if (!cleanText) {
       return NextResponse.json(
@@ -29,35 +43,42 @@ export async function GET(req: NextRequest) {
       );
     }
 
+    if (audioCache.has(cleanText)) {
+      const cachedAudio = audioCache.get(cleanText)!;
+      return audioResponse(cachedAudio);
+    }
+
     const googleAudioUrl = getAudioUrl(cleanText, {
       lang: "bn",
       slow: false,
       host: "https://translate.google.com",
     });
 
-    const audioResponse = await fetch(googleAudioUrl, {
+    const audioResponseFromGoogle = await fetch(googleAudioUrl, {
       headers: {
         "User-Agent":
           "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36",
       },
+      cache: "no-store",
     });
 
-    if (!audioResponse.ok) {
+    if (!audioResponseFromGoogle.ok) {
       return NextResponse.json(
         { error: "Failed to fetch Bangla audio." },
         { status: 500 }
       );
     }
 
-    const audioBuffer = await audioResponse.arrayBuffer();
+    const arrayBuffer = await audioResponseFromGoogle.arrayBuffer();
+    const audioBuffer = Buffer.from(arrayBuffer);
 
-    return new NextResponse(audioBuffer, {
-      status: 200,
-      headers: {
-        "Content-Type": "audio/mpeg",
-        "Cache-Control": "no-store",
-      },
-    });
+    if (audioCache.size > 30) {
+      audioCache.clear();
+    }
+
+    audioCache.set(cleanText, audioBuffer);
+
+    return audioResponse(audioBuffer);
   } catch (error) {
     console.warn("Bangla TTS GET error:", error);
 
@@ -81,7 +102,7 @@ export async function POST(req: Request) {
       );
     }
 
-    const cleanText = text.replace(/\s+/g, " ").slice(0, 1800);
+    const cleanText = text.replace(/\s+/g, " ").trim().slice(0, 1200);
 
     const results = getAllAudioUrls(cleanText, {
       lang: "bn",

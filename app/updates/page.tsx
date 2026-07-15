@@ -9,6 +9,7 @@ import { LectureSection } from "@/components/updates/LectureSection";
 import { TeamSection } from "@/components/updates/TeamSection";
 import { ResearchSection } from "@/components/updates/ResearchSection";
 import { AssignmentSection } from "@/components/updates/AssignmentSection";
+import { ProjectUpdateSection } from "@/components/updates/ProjectUpdateSection";
 
 export default function UpdatesPage() {
   const [filter, setFilter] = useState<FilterType>("all");
@@ -30,6 +31,7 @@ export default function UpdatesPage() {
       {show("team") && <TeamSection />}
       {show("related") && <ResearchSection />}
       {show("assignments") && <AssignmentSection />}
+      {show("Project") && <ProjectUpdateSection />}
     </main>
   );
 }
