@@ -50,10 +50,10 @@ const projectMedia: ProjectMedia[] = [
   {
     id: 6,
     type: "image",
-    source: "/Project Updates/Agent-Work.png",
-    alt: "Diagram of the Bangla AI voice agent",
+    source: "/Project Updates/Map-Planning.png",
+    alt: "Visualize map how it works",
     caption:
-      "Fig. 6: Diagram showing the integration of the Bangla AI voice agent with the Krishi Rover.",
+      "Fig. 6: Visual representation of how the mapping and navigation system works for the Krishi Rover.",
   },
   {
     id: 7,
@@ -167,6 +167,35 @@ const projectMedia: ProjectMedia[] = [
     caption:
       "Fig. 20: Complete assembled model of the Krishi Rover with all major components.",
   },
+  {
+    id: 21,
+    type: "image",
+    source: "/Project Updates/Ai-Assistant-Architecture.png",
+    alt: "AI Assistant Architecture for Krishi Rover",
+    caption:
+      "Fig. 21: AI Assistant Architecture for the Krishi Rover with integration points.",
+  },
+  {
+    id: 22,
+    type: "image",
+    source: "/Project Updates/How It Works.png",
+    alt: "How the Rover  Works",
+    caption: "Fig. 22: How the Rover Works with the Krishi Rover.",
+  },
+  {
+    id: 23,
+    type: "image",
+    source: "/Project Updates/Pin-Connection.png",
+    alt: "Pin Connection Diagram for the Krishi Rover",
+    caption: "Fig. 23: Pin Connection Diagram for the Krishi Rover.",
+  },
+  {
+    id: 24,
+    type: "image",
+    source: "/Project Updates/Full-Process-Rover.png",
+    alt: "Full Process Diagram for the Krishi Rover",
+    caption: "Fig. 24: Full Process Diagram for the Krishi Rover.",
+  },
 ];
 
 export function ProjectUpdateSection() {
@@ -213,7 +242,6 @@ export function ProjectUpdateSection() {
                       className="h-full w-full object-contain"
                     >
                       <source src={media.source} type="video/mp4" />
-
                       Your browser does not support video playback.
                     </video>
                   )}
