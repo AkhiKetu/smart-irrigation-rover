@@ -196,6 +196,88 @@ const projectMedia: ProjectMedia[] = [
     alt: "Full Process Diagram for the Krishi Rover",
     caption: "Fig. 24: Full Process Diagram for the Krishi Rover.",
   },
+    {
+    id: 25,
+    type: "image",
+    source: "/Project Updates/Team Work-1.jpeg",
+    alt: "Team Work on the Krishi Rover",
+    caption: "Fig. 25: Team Work on the Krishi Rover.",
+  },
+      {
+    id: 26,
+    type: "image",
+    source: "/Project Updates/Team Work-2.jpeg",
+    alt: "Team Work on the Krishi Rover",
+    caption: "Fig. 26: Team Work on the Krishi Rover.",
+  },
+        {
+    id: 27,
+    type: "image",
+    source: "/Project Updates/Rover-IUB.jpeg",
+    alt: "Rover In Iub Field",
+    caption: "Fig. 27: Rover In Iub Field.",
+  },
+
+       {
+    id: 28,
+    type: "image",
+    source: "/Project Updates/Rover-IUB-3.jpeg",
+    alt: "Rover In Iub Field",
+    caption: "Fig. 28: Rover In Iub Field.",
+  },
+        {
+    id: 29,
+    type: "image",
+    source: "/Project Updates/Rover-IUB-2.jpeg",
+    alt: "Rover In Iub Field",
+    caption: "Fig. 29: Rover In Iub Field.",
+  },
+        {
+    id: 30,
+    type: "image",
+    source: "/Project Updates/Rover-IUB-1.jpeg",
+    alt: "Rover In Iub Field",
+    caption: "Fig. 30: Rover In Iub Field.",
+  },
+          {
+    id: 31,
+    type: "video",
+    source: "/Project Updates/Rover Checking.mp4",
+    alt: "Rover Checking in Field",
+    caption: "Fig. 31: Rover working in the field for checking.",
+  },
+            {
+    id: 32,
+    type: "video",
+    source: "/Project Updates/Checking the Rover.mp4",
+    alt: "Rover Checking in Field",
+    caption: "Fig. 32: Rover working in the field for checking.",
+  },
+
+
+                {
+    id: 33,
+    type: "video",
+    source: "/Project Updates/After reaching last zone Rotate.mp4",
+    alt: "Reaching last zone and rotating the rover",
+    caption: "Fig. 33: Rover reaching the last zone and rotating in the field.",
+  },
+              {
+    id: 34,
+    type: "video",
+    source: "/Project Updates/Checking Small field prototype.mp4",
+    alt: "Rover Checking in Field",
+    caption: "Fig. 34: Rover working in the field for checking.",
+  },
+
+                {
+    id: 35,
+    type: "image",
+    source: "/Project Updates/Checking the soil.jpeg",
+    alt: "Checking the soil sensor with cup of water",
+    caption: "Fig. 35: Checking the soil sensor with cup of water.",
+  },
+
 ];
 
 export function ProjectUpdateSection() {

@@ -9,7 +9,7 @@ import { LectureSection } from "@/components/updates/LectureSection";
 import { TeamSection } from "@/components/updates/TeamSection";
 import { ResearchSection } from "@/components/updates/ResearchSection";
 import { AssignmentSection } from "@/components/updates/AssignmentSection";
-import { ProjectUpdateSection } from "@/components/updates/ProjectUpdateSection";
+import { ProjectUpdateSection } from "@/public/Project Updates/ProjectUpdateSection";
 
 export default function UpdatesPage() {
   const [filter, setFilter] = useState<FilterType>("all");
