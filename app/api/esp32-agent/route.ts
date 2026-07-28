@@ -41,15 +41,51 @@ function hasAny(q: string, words: string[]) {
   return words.some((word) => q.includes(word));
 }
 
+function getBangladeshTimeText() {
+  const now = new Date();
+
+  const time = new Intl.DateTimeFormat("bn-BD", {
+    timeZone: "Asia/Dhaka",
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric",
+    hour12: true,
+  }).format(now);
+
+  const date = new Intl.DateTimeFormat("bn-BD", {
+    timeZone: "Asia/Dhaka",
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  }).format(now);
+
+  return `বাংলাদেশ সময় এখন ${time}। আজ ${date}।`;
+}
+
+function formatTimeAgo(updatedAt?: string) {
+  if (!updatedAt) return "সময় পাওয়া যায়নি";
+
+  const diff = Math.floor((Date.now() - new Date(updatedAt).getTime()) / 1000);
+
+  if (Number.isNaN(diff)) return "সময় পাওয়া যায়নি";
+  if (diff < 5) return "এইমাত্র";
+  if (diff < 60) return `${diff} সেকেন্ড আগে`;
+
+  return `${Math.floor(diff / 60)} মিনিট আগে`;
+}
+
 function isDetailedQuestion(message: string) {
   const q = message.toLowerCase();
 
   return hasAny(q, [
     "বিস্তারিত",
-    "ব্যাখ্যা",
-    "explain",
+    "bistarito",
     "details",
+    "detail",
+    "explain",
     "elaborate",
+    "ব্যাখ্যা",
     "কীভাবে",
     "কিভাবে",
     "how",
@@ -57,25 +93,107 @@ function isDetailedQuestion(message: string) {
     "why",
     "innovation",
     "ইনোভেশন",
-    "কাজ করে",
-    "working",
-    "process",
-    "প্রসেস",
+    "পুরো",
+    "সম্পূর্ণ",
+    "full",
   ]);
 }
 
-function fixedReply(
+function isSearchQuestion(message: string) {
+  const q = message.toLowerCase();
+
+  return hasAny(q, [
+    "search",
+    "সার্চ",
+    "খুঁজে",
+    "খুজে",
+    "খোঁজ",
+    "খোজ",
+    "google",
+    "গুগল",
+    "latest",
+    "বর্তমান খবর",
+    "আজকের খবর",
+    "news",
+    "ওয়েব",
+    "web",
+  ]);
+}
+
+async function getSimpleWebContext(query: string) {
+  try {
+    const url =
+      "https://api.duckduckgo.com/?q=" +
+      encodeURIComponent(query) +
+      "&format=json&no_html=1&skip_disambig=1";
+
+    const res = await fetch(url, {
+      cache: "no-store",
+      headers: {
+        "User-Agent": "KrishiRoverDemo/1.0",
+      },
+    });
+
+    if (!res.ok) return "";
+
+    const data = await res.json();
+
+    const abstractText =
+      typeof data.AbstractText === "string" ? data.AbstractText.trim() : "";
+
+    const heading =
+      typeof data.Heading === "string" ? data.Heading.trim() : "";
+
+    if (abstractText) {
+      return `Web result title: ${heading}\nWeb result summary: ${abstractText}`;
+    }
+
+    return "";
+  } catch {
+    return "";
+  }
+}
+
+function fixedFieldReply(
   message: string,
   roverData: RoverData | null | undefined,
 ) {
   const q = message.toLowerCase();
   const detailed = isDetailedQuestion(message);
 
-  // Creator
   if (
     hasAny(q, [
-      "তোমাকে কে বানিয়েছে",
-      "তোমাকে কে বানিয়েছে",
+      "সময়",
+      "time",
+      "কয়টা বাজে",
+      "কয়টা বাজে",
+      "date",
+      "তারিখ",
+      "আজ কী বার",
+      "আজ কি বার",
+    ])
+  ) {
+    return getBangladeshTimeText();
+  }
+
+  if (
+    hasAny(q, [
+      "তোমার নাম",
+      "tomar nam",
+      "nam ki",
+      "name ki",
+      "your name",
+      "নাম কী",
+      "নাম কি",
+    ])
+  ) {
+    return detailed
+      ? "আমার নাম সেচবন্ধু। আমি কৃষি রোভার প্রজেক্টের বাংলা AI voice assistant। মাঠে রোভার চলার সময় আমি live sensor data দেখে মাটি, সেচ, তাপমাত্রা, আর্দ্রতা এবং বাধা সম্পর্কে উত্তর দিতে পারি।"
+      : "আমার নাম সেচবন্ধু।";
+  }
+
+  if (
+    hasAny(q, [
       "কে বানিয়েছে",
       "কে বানিয়েছে",
       "কে তৈরি করেছে",
@@ -87,58 +205,146 @@ function fixedReply(
       "তৈরি করেছে",
     ])
   ) {
-    return "আমাকে তৈরি করেছেন আখি কেতু চাকমা। আমি কৃষি রোভার প্রজেক্টের বাংলা AI সহকারী। আমি রোভার, সেন্সর ডাটা এবং সেচ ব্যবস্থা সম্পর্কে বাংলায় উত্তর দিই।";
+    return detailed
+      ? "আমাকে তৈরি করেছেন আখি কেতু চাকমা। আমি কৃষি রোভার প্রজেক্টের real-life field assistant হিসেবে কাজ করি। আমার কাজ হলো rover-এর live condition বুঝে কৃষককে সহজ বাংলায় সাহায্য করা।"
+      : "আমাকে তৈরি করেছেন আখি কেতু চাকমা।";
   }
 
-  // Greeting
-  if (hasAny(q, ["হ্যালো", "hello", "কেমন", "কেমন আছো"])) {
-    return "আমি ভালো আছি। আমি সেচবন্ধু, কৃষি রোভার প্রজেক্টের বাংলা AI সহকারী। আপনি চাইলে আমাকে তাপমাত্রা, আর্দ্রতা, মাটি বা পাম্প status জিজ্ঞেস করতে পারেন।";
+  if (hasAny(q, ["হ্যালো", "hello", "কেমন", "কেমন আছো", "how are you"])) {
+    return detailed
+      ? "আমি ভালো আছি। আমি সেচবন্ধু, আপনার কৃষি রোভারের বাংলা সহকারী। আপনি মাঠে হাঁটার সময় আমাকে মাটি, পানি, তাপমাত্রা, বাধা, current zone বা rover status জিজ্ঞেস করতে পারেন।"
+      : "আমি ভালো আছি। আমি সেচবন্ধু।";
   }
 
-  // Temperature
   if (
     hasAny(q, [
-      "তাপমাত্রা",
-      "টেম্পারেচার",
-      "temperature",
-      "temp",
-      "tapmatra",
-      "tapmattra",
-      "তাপমাত্রা কত",
-      "কত ডিগ্রি",
+      "গান",
+      "song",
+      "sing",
+      "গাও",
+      "গাইতে",
+      "একটা গান",
+      "gaan",
     ])
   ) {
-    if (!roverData || roverData.temperature === null) {
-      return "তাপমাত্রার live data এখনো পাওয়া যায়নি। ESP32 থেকে IoT dashboard-এ data আসছে কিনা চেক করুন। Data আসলে আমি সরাসরি temperature বলে দিতে পারব।";
+    if (detailed) {
+      return "আমি copyrighted গান গাইতে পারি না, তবে কৃষি রোভার নিয়ে একটি ছোট original গান গাইছি। সবুজ মাঠে রোভার চলে, মাটির খবর আনে। শুকনা মাটিতে পানি দেয়, ফসল হাসি টানে। সেচবন্ধু পাশে থাকে, কৃষকের কথা জানে।";
     }
 
-    return `বর্তমান তাপমাত্রা ${roverData.temperature.toFixed(
-      1,
-    )} ডিগ্রি সেলসিয়াস। এই তথ্যটি DHT11 sensor থেকে ESP32 পড়ে IoT dashboard-এ পাঠিয়েছে। তাই dashboard-এর data আর আমার উত্তর একই হবে।`;
+    return "সবুজ মাঠে রোভার চলে, মাটির খবর আনে। শুকনা মাটিতে পানি দিয়ে, ফসল হাসি টানে।";
   }
 
-  // Humidity
+  if (!roverData) {
+    if (
+      hasAny(q, [
+        "মাঠ",
+        "field",
+        "status",
+        "স্ট্যাটাস",
+        "কি অবস্থা",
+        "কী অবস্থা",
+        "মাটি",
+        "পানি",
+        "পাম্প",
+        "সেচ",
+        "তাপমাত্রা",
+        "আর্দ্রতা",
+        "বাধা",
+        "obstacle",
+      ])
+    ) {
+      return "রোভার থেকে live data এখনো পাওয়া যায়নি। ESP32 WiFi এবং IoT dashboard connection চেক করুন।";
+    }
+
+    return null;
+  }
+
+  const zoneText = roverData.currentZone
+    ? `রোভার এখন ${roverData.currentZone} zone-এ আছে`
+    : "রোভার এখন field monitoring করছে";
+
+  const soilText =
+    roverData.soilStatus === "DRY"
+      ? `মাটি শুকনা, soil value ${roverData.soilValue}`
+      : `মাটি ভেজা আছে, soil value ${roverData.soilValue}`;
+
+  const pumpText =
+    roverData.pumpStatus === "ON"
+      ? "পাম্প এখন চালু আছে"
+      : "পাম্প এখন বন্ধ আছে";
+
+  const tempText =
+    roverData.temperature !== null
+      ? `তাপমাত্রা ${roverData.temperature.toFixed(1)} ডিগ্রি সেলসিয়াস`
+      : "তাপমাত্রার data নেই";
+
+  const humidityText =
+    roverData.humidity !== null
+      ? `আর্দ্রতা ${roverData.humidity.toFixed(1)} শতাংশ`
+      : "আর্দ্রতার data নেই";
+
+  const front =
+    roverData.frontDistance === null ? 999 : roverData.frontDistance;
+  const left = roverData.leftDistance === null ? 999 : roverData.leftDistance;
+  const right = roverData.rightDistance === null ? 999 : roverData.rightDistance;
+
+  const obstacleText =
+    front <= 20
+      ? `সামনে ${front} সেন্টিমিটার দূরে বাধা আছে`
+      : front <= 35
+        ? `সামনে ${front} সেন্টিমিটার দূরে কিছু আছে, রোভার সতর্কভাবে চলবে`
+        : "সামনের রাস্তা আপাতত পরিষ্কার";
+
   if (
     hasAny(q, [
-      "আর্দ্রতা",
-      "হিউমিডিটি",
-      "humidity",
-      "humid",
-      "ardrota",
-      "ardrata",
-      "আর্দ্রতা কত",
+      "আমি মাঠে",
+      "ami mathe",
+      "field",
+      "মাঠে হাঁটছি",
+      "হাঁটছি",
+      "walking",
+      "কি দেখছো",
+      "কী দেখছো",
+      "কি অবস্থা",
+      "কী অবস্থা",
+      "সামনে কী",
+      "সামনে কি",
+      "চলতে পারবে",
+      "safe",
+      "নিরাপদ",
     ])
   ) {
-    if (!roverData || roverData.humidity === null) {
-      return "আর্দ্রতার live data এখনো পাওয়া যায়নি। ESP32 থেকে IoT dashboard-এ data আসছে কিনা দেখুন। Data আসলে আমি live humidity value বলব।";
-    }
-
-    return `বর্তমান আর্দ্রতা ${roverData.humidity.toFixed(
-      1,
-    )} শতাংশ। এই মানটি DHT11 sensor থেকে নেওয়া হয়েছে। IoT dashboard-এও একই humidity value দেখা যাবে।`;
+    return detailed
+      ? `${zoneText}। ${obstacleText}। ${soilText}। ${pumpText}। ${tempText} এবং ${humidityText}। এই অবস্থায় রোভার প্রয়োজন অনুযায়ী চলবে এবং dry zone হলে শুধু ২ সেকেন্ড সেচ দেবে।`
+      : `${zoneText}। ${obstacleText}। ${soilText}।`;
   }
 
-  // Soil
+  if (
+    hasAny(q, [
+      "পানি লাগবে",
+      "পানি দিতে হবে",
+      "সেচ লাগবে",
+      "সেচ দরকার",
+      "water needed",
+      "irrigation needed",
+      "পাম্প চালাও",
+      "pump",
+      "পাম্প",
+      "সেচ",
+      "পানি",
+    ])
+  ) {
+    if (roverData.soilStatus === "DRY") {
+      return detailed
+        ? `এই zone-এ পানি দরকার, কারণ ${soilText}। রোভার dry condition detect করলে থামে, red LED চালু করে এবং pump ২ সেকেন্ডের জন্য চালু করে। এরপর pump বন্ধ হয়ে rover আবার চলা শুরু করে।`
+        : "এই zone-এ পানি দরকার। মাটি শুকনা, তাই পাম্প ২ সেকেন্ড চলবে।";
+    }
+
+    return detailed
+      ? `এই zone-এ এখন পানি দরকার নেই, কারণ ${soilText}। Wet condition হলে green LED চালু থাকে এবং pump বন্ধ থাকে। এতে অপ্রয়োজনীয় পানি নষ্ট হয় না।`
+      : "এখন পানি দরকার নেই। মাটি ভেজা আছে।";
+  }
+
   if (
     hasAny(q, [
       "মাটি",
@@ -149,124 +355,112 @@ function fixedReply(
       "wet",
       "moisture",
       "মাটির অবস্থা",
-      "soil status",
     ])
   ) {
-    if (!roverData) {
-      return "মাটির live data এখনো পাওয়া যায়নি। ESP32 থেকে IoT dashboard-এ data আসছে কিনা চেক করুন। Data এলে আমি soil value এবং dry/wet status বলতে পারব।";
-    }
-
     if (roverData.soilStatus === "DRY") {
-      return `মাটি এখন শুকনা, sensor value ${roverData.soilValue}। তাই rover এটাকে dry zone হিসেবে ধরেছে। Dry zone হলে red LED চালু হয় এবং pump ৩ সেকেন্ড পানি দেয়।`;
+      return detailed
+        ? `${soilText}। এই value threshold-এর উপরে, তাই rover এটাকে dry zone হিসেবে ধরেছে। Dry হলে pump ২ সেকেন্ড পানি দেয় এবং red LED চালু হয়।`
+        : `মাটি শুকনা। Soil value ${roverData.soilValue}।`;
     }
 
-    return `মাটি এখন ভেজা বা ঠিক আছে, sensor value ${roverData.soilValue}। তাই pump বন্ধ আছে। Wet condition হলে green LED চালু থাকে।`;
+    return detailed
+      ? `${soilText}। এই value threshold-এর নিচে, তাই rover এটাকে wet zone হিসেবে ধরেছে। Wet হলে pump বন্ধ থাকে এবং green LED চালু থাকে।`
+      : `মাটি ভেজা আছে। Soil value ${roverData.soilValue}।`;
   }
 
-  // Pump
   if (
     hasAny(q, [
-      "পাম্প",
-      "pump",
-      "সেচ",
-      "irrigation",
-      "water",
-      "watering",
-      "পানি",
-      "পাম্প চালু",
+      "তাপমাত্রা",
+      "temperature",
+      "temp",
+      "tapmatra",
+      "কত ডিগ্রি",
     ])
   ) {
-    if (!roverData) {
-      return "পাম্পের live data এখনো পাওয়া যায়নি। ESP32 থেকে IoT dashboard-এ data আসছে কিনা দেখুন। Data এলে আমি pump on/off status বলতে পারব।";
-    }
-
-    if (roverData.pumpStatus === "ON") {
-      return "পাম্প এখন চালু আছে এবং শুকনা মাটিতে পানি দিচ্ছে। এটি continuous চলবে না। ESP32 ৩ সেকেন্ড পরে pump automatically বন্ধ করে দেবে।";
-    }
-
-    return "পাম্প এখন বন্ধ আছে। মাটি শুকনা হলে rover থেমে pump ৩ সেকেন্ডের জন্য চালু করবে। মাটি ভেজা থাকলে pump বন্ধ থাকবে।";
+    return detailed
+      ? `বর্তমান ${tempText}। এই data DHT11 sensor থেকে ESP32 পড়ে IoT dashboard-এ পাঠিয়েছে। আমি সেই live rover data থেকেই উত্তর দিচ্ছি।`
+      : `বর্তমান ${tempText}।`;
   }
 
-  // Sensor summary
   if (
     hasAny(q, [
-      "ডাটা",
-      "data",
-      "সেন্সর",
-      "sensor",
-      "সব",
-      "summary",
-      "রিডিং",
-      "reading",
-      "status",
-      "স্ট্যাটাস",
-      "সব সেন্সর",
+      "আর্দ্রতা",
+      "humidity",
+      "humid",
+      "ardrota",
+      "ardrata",
+      "হিউমিডিটি",
     ])
   ) {
-    if (!roverData) {
-      return "Live sensor data এখনো পাওয়া যায়নি। ESP32 WiFi এবং IoT dashboard connection চেক করুন। Connection ঠিক হলে soil, temperature, humidity, pump এবং distance data দেখাবে।";
-    }
-
-    return `Live data অনুযায়ী মাটি ${
-      roverData.soilStatus === "DRY" ? "শুকনা" : "ভেজা"
-    }, soil value ${roverData.soilValue}। Temperature ${roverData.temperature?.toFixed(
-      1,
-    )} ডিগ্রি এবং humidity ${roverData.humidity?.toFixed(
-      1,
-    )} শতাংশ। Pump এখন ${
-      roverData.pumpStatus === "ON" ? "চালু" : "বন্ধ"
-    }, আর rover status হলো ${roverData.roverStatus}।`;
+    return detailed
+      ? `বর্তমান ${humidityText}। এই data DHT11 sensor থেকে নেওয়া হয়েছে এবং IoT dashboard-এ live update হচ্ছে।`
+      : `বর্তমান ${humidityText}।`;
   }
 
-  // Distance
   if (
     hasAny(q, [
-      "দূরত্ব",
-      "distance",
-      "obstacle",
       "বাধা",
+      "obstacle",
       "সামনে",
       "front",
+      "দূরত্ব",
+      "distance",
+      "রাস্তা",
+      "path",
+      "ডানে",
+      "বামে",
       "left",
       "right",
-      "রোভার কী দেখছে",
     ])
   ) {
-    if (!roverData) {
-      return "Distance data এখনো পাওয়া যায়নি। ESP32 থেকে IoT dashboard-এ ultrasonic data আসছে কিনা দেখুন। Data এলে আমি সামনে, বাম এবং ডান দিকের distance বলতে পারব।";
-    }
-
-    return `সামনে ${roverData.frontDistance} সেন্টিমিটার, বামে ${roverData.leftDistance} সেন্টিমিটার এবং ডানে ${roverData.rightDistance} সেন্টিমিটার distance আছে। এই values ultrasonic sensor থেকে এসেছে। Rover status এখন ${roverData.roverStatus}।`;
+    return detailed
+      ? `সামনে ${front} সেন্টিমিটার, বামে ${left} সেন্টিমিটার এবং ডানে ${right} সেন্টিমিটার distance আছে। ${obstacleText}। রোভার obstacle পেলে থামে, পাশে ঘুরে, তারপর আবার চলতে থাকে।`
+      : `${obstacleText}।`;
   }
 
-  // Zone
   if (
     hasAny(q, [
       "zone",
       "জোন",
-      "এখন কোথায়",
-      "এখন কোথায়",
-      "কোথায়",
       "কোন জোন",
-      "current zone",
-      "বর্তমান জোন",
+      "কোথায়",
+      "কোথায়",
+      "current",
+      "status",
+      "স্ট্যাটাস",
+      "rover status",
+      "এখন কী করছে",
+      "এখন কি করছে",
     ])
   ) {
-    if (!roverData) {
-      return "Current zone data এখনো পাওয়া যায়নি। ESP32 dashboard-এ data পাঠালে আমি rover কোন zone-এ আছে সেটা বলতে পারব।";
-    }
-
-    return `রোভার এখন ${roverData.currentZone || "অজানা"} zone-এর data পাঠাচ্ছে। Direction হলো ${
-      roverData.zoneDirection || "অজানা"
-    }। Rover status এখন ${roverData.roverStatus}।`;
+    return detailed
+      ? `${zoneText}। Direction হলো ${roverData.zoneDirection || "unknown"}। Rover status হলো ${roverData.roverStatus}। শেষ data update হয়েছে ${formatTimeAgo(roverData.updatedAt)}।`
+      : `${zoneText}। ${roverData.roverStatus}।`;
   }
 
-  // Team
-  if (hasAny(q, ["টিম", "team", "মেম্বার", "সদস্য", "নাম"])) {
-    return "আমাদের টিমে আছেন আখি, জাওয়াদ, সজিব, আসিফ এবং ফাহিম। আমরা কৃষির জন্য smart farming rover তৈরি করেছি। Rover soil, temperature, humidity, obstacle এবং pump status live dashboard-এ পাঠায়।";
+  if (
+    hasAny(q, [
+      "সব data",
+      "সব ডাটা",
+      "summary",
+      "সারাংশ",
+      "সব বলো",
+      "সব দেখাও",
+      "field summary",
+      "পুরো অবস্থা",
+    ])
+  ) {
+    return detailed
+      ? `${zoneText}। ${soilText}। ${tempText} এবং ${humidityText}। ${pumpText}। ${obstacleText}।`
+      : `${soilText}। ${tempText}, ${humidityText}। ${pumpText}।`;
   }
 
-  // Project
+  if (hasAny(q, ["টিম", "team", "মেম্বার", "সদস্য", "team member"])) {
+    return detailed
+      ? "আমাদের টিমে আছেন আখি, জাওয়াদ, সজিব, আসিফ এবং ফাহিম। আমরা কৃষির জন্য smart farming rover তৈরি করেছি, যা field monitoring, smart irrigation, IoT dashboard এবং Bangla voice interaction একসাথে করে।"
+      : "আমাদের টিমে আছেন আখি, জাওয়াদ, সজিব, আসিফ এবং ফাহিম।";
+  }
+
   if (
     hasAny(q, [
       "প্রজেক্ট",
@@ -279,11 +473,9 @@ function fixedReply(
       "ইনোভেশন",
     ])
   ) {
-    if (detailed) {
-      return "কৃষি রোভার একটি smart farming rover, যা autonomousভাবে zone ধরে চলতে পারে। এটি soil moisture, temperature, humidity এবং obstacle distance collect করে IoT dashboard-এ পাঠায়। কোনো zone শুকনা হলে rover থামে, red LED চালু করে এবং pump ৩ সেকেন্ড পানি দেয়। Bangla AI assistant live sensor data পড়ে কৃষকের ভাষায় উত্তর দিতে পারে।";
-    }
-
-    return "কৃষি রোভার মাটি, তাপমাত্রা, আর্দ্রতা এবং obstacle পর্যবেক্ষণ করে। শুকনা মাটি পেলে এটি থেমে ৩ সেকেন্ড সেচ দেয়। একই live data IoT dashboard এবং Bangla AI assistant ব্যবহার করে।";
+    return detailed
+      ? "কৃষি রোভার একটি real-life smart farming rover prototype। এটি মাঠে zone ধরে চলে, obstacle detect করে, soil moisture check করে এবং মাটি শুকনা হলে শুধু ২ সেকেন্ড পানি দেয়। একই সাথে live data IoT dashboard-এ দেখায় এবং Bangla AI assistant কৃষকের সাথে field interaction করতে পারে।"
+      : "কৃষি রোভার মাঠে soil monitoring, smart irrigation, obstacle avoidance এবং Bangla voice interaction করতে পারে।";
   }
 
   return null;
@@ -292,8 +484,25 @@ function fixedReply(
 function cleanReply(text: string, detailed: boolean) {
   let reply = text.replace(/\s+/g, " ").replace(/["“”]/g, "").trim();
 
-  // Old stable length for ESP32 speaker
-  const maxLength = detailed ? 300 : 230;
+  const maxLength = detailed ? 520 : 320;
+
+  const sentences = reply.match(/[^।!?]+[।!?]+/g);
+
+  if (sentences && sentences.length > 0) {
+    let finalText = "";
+
+    for (const sentence of sentences) {
+      if ((finalText + " " + sentence).trim().length <= maxLength) {
+        finalText = (finalText + " " + sentence).trim();
+      } else {
+        break;
+      }
+    }
+
+    if (finalText.length > 0) {
+      reply = finalText;
+    }
+  }
 
   if (reply.length > maxLength) {
     reply = reply.slice(0, maxLength).trim();
@@ -316,23 +525,12 @@ function cleanReply(text: string, detailed: boolean) {
   return reply;
 }
 
-function formatTimeAgo(updatedAt?: string) {
-  if (!updatedAt) return "সময় পাওয়া যায়নি";
-
-  const diff = Math.floor((Date.now() - new Date(updatedAt).getTime()) / 1000);
-
-  if (Number.isNaN(diff)) return "সময় পাওয়া যায়নি";
-  if (diff < 5) return "এইমাত্র";
-  if (diff < 60) return `${diff} সেকেন্ড আগে`;
-
-  return `${Math.floor(diff / 60)} মিনিট আগে`;
-}
-
 export async function GET(req: Request) {
   return NextResponse.json({
     ok: true,
-    message: "ESP32 Bangla Agent API is working",
+    message: "Real-life field AI agent is working",
     origin: new URL(req.url).origin,
+    currentTime: getBangladeshTimeText(),
     latestRoverData: globalStore.latestRoverData || null,
   });
 }
@@ -359,12 +557,18 @@ export async function POST(req: Request) {
     const detailed = isDetailedQuestion(message);
     const roverData = globalStore.latestRoverData || null;
 
-    let reply = fixedReply(message, roverData);
+    let webContext = "";
+
+    if (isSearchQuestion(message)) {
+      webContext = await getSimpleWebContext(message);
+    }
+
+    let reply = fixedFieldReply(message, roverData);
 
     if (!reply) {
       const roverDataText = roverData
         ? `
-Live Rover Data:
+Live Rover Field Data:
 - Soil value: ${roverData.soilValue}
 - Soil status: ${roverData.soilStatus}
 - Temperature: ${roverData.temperature}
@@ -380,38 +584,51 @@ Live Rover Data:
 - Rover status: ${roverData.roverStatus}
 - Last updated: ${formatTimeAgo(roverData.updatedAt)}
 `
-        : "Live Rover Data: Not available yet.";
+        : "Live Rover Field Data: Not available yet.";
+
+      const webText = webContext
+        ? `
+Web Search Context:
+${webContext}
+`
+        : "Web Search Context: No useful live web result found for this query.";
 
       const completion = await groq.chat.completions.create({
         model: process.env.GROQ_MODEL || "llama-3.3-70b-versatile",
-        temperature: 0.25,
-        max_tokens: detailed ? 160 : 100,
+        temperature: 0.35,
+        max_tokens: detailed ? 260 : 180,
         messages: [
           {
             role: "system",
             content: `
 তোমার নাম "সেচবন্ধু"।
 
-তুমি Krishi Rover project-এর বাংলা voice AI assistant।
+তুমি Krishi Rover-এর real-life Bangla AI field assistant।
 
-নিয়ম:
-- শুধুমাত্র বাংলা ভাষায় উত্তর দেবে।
-- Banglish ব্যবহার করবে না।
-- সাধারণ প্রশ্নে ২ থেকে ৩ বাক্যে উত্তর দেবে।
-- বিস্তারিত/explain/কেন/কীভাবে/innovation type প্রশ্নে ৩ থেকে ৪ বাক্যে উত্তর দেবে।
-- Sensor data জানতে চাইলে অবশ্যই Live Rover Data থেকে উত্তর দেবে।
-- Sensor data না থাকলে বলবে live data পাওয়া যাচ্ছে না।
-- বানিয়ে কোনো sensor value বলবে না।
-- উত্তর natural এবং presentation-friendly হবে।
-- ESP32 speaker-এর জন্য বেশি বড় করবে না।
+Current time:
+${getBangladeshTimeText()}
 
-Creator rule:
-- কেউ যদি জিজ্ঞেস করে তোমাকে কে বানিয়েছে, উত্তর দেবে: আমাকে তৈরি করেছেন আখি কেতু চাকমা।
+তোমার কাজ:
+- কৃষক মাঠে হাঁটলে তার সাথে naturally কথা বলা।
+- Rover live data দেখে field situation বোঝানো।
+- Fixed Q/A এর মতো উত্তর দেবে না; real-life assistant এর মতো উত্তর দেবে।
+- সাধারণ প্রশ্নে ২ থেকে ৪টি complete sentence দেবে।
+- "বিস্তারিত", "bistarito", "explain", "কীভাবে", "কেন" থাকলে ৪ থেকে ৬টি complete sentence দেবে।
+- Sentence কখনো মাঝখানে কেটে দেবে না।
+- Sensor value বানিয়ে বলবে না।
+- Live data না থাকলে বলবে live data পাওয়া যাচ্ছে না।
+- Current time জানতে চাইলে উপরের Current time ব্যবহার করবে।
+- User গান গাইতে বললে copyrighted গান গাইবে না; Krishi Rover বা farming নিয়ে ছোট original বাংলা গান গাইবে।
+- Web search context থাকলে সেটা ব্যবহার করবে; না থাকলে বলবে live web result পাওয়া যায়নি।
+- উত্তর অবশ্যই বাংলায় হবে।
+- ESP32 speaker-এর জন্য উত্তর clear, natural, complete এবং human-like হবে।
 
 Project Context:
 ${PROJECT_CONTEXT}
 
 ${roverDataText}
+
+${webText}
             `,
           },
           { role: "user", content: message },
@@ -420,7 +637,7 @@ ${roverDataText}
 
       reply =
         completion.choices[0]?.message?.content?.trim() ||
-        "দুঃখিত, আমি এখন উত্তর দিতে পারছি না। আবার প্রশ্ন করুন।";
+        "দুঃখিত, আমি এখন উত্তর দিতে পারছি না।";
     }
 
     reply = cleanReply(reply, detailed);
@@ -429,6 +646,8 @@ ${roverDataText}
       reply,
       ttsUrl: makeTtsUrl(req, reply),
       roverData,
+      currentTime: getBangladeshTimeText(),
+      webContext: webContext || null,
     });
   } catch (error) {
     console.warn("ESP32 Agent API error:", error);

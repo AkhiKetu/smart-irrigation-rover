@@ -34,7 +34,7 @@ export async function GET(req: NextRequest) {
       });
     }
 
-    const cleanText = text.replace(/\s+/g, " ").trim().slice(0, 160);
+    const cleanText = text.replace(/\s+/g, " ").trim().slice(0, 220);
 
     if (!cleanText) {
       return NextResponse.json(
