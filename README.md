@@ -1,8 +1,8 @@
-# KrishiRover: Autonomous Smart Farming Rover with Bangla Voice AI and IoT Dashboard
+# KrishiRover
 
-KrishiRover is an autonomous smart farming rover prototype designed for soil monitoring, smart irrigation, obstacle-aware movement, live IoT monitoring, and Bangla voice interaction. The system uses an ESP32-based rover, a Next.js web application, an IoT dashboard, and a Bangla AI voice assistant named **সেচবন্ধু**.
+KrishiRover is an autonomous smart farming rover with soil monitoring, smart irrigation, obstacle detection, IoT dashboard, and Bangla AI voice interaction. The project uses an ESP32-based rover for hardware control and a Next.js web application for the dashboard, AI agent, and voice system.
 
-The rover can move through a prototype field, check soil moisture zone by zone, water only dry zones, avoid close obstacles, send live sensor data to a dashboard, and answer user questions in Bangla using live rover data.
+The Bangla AI assistant is named **সেচবন্ধু**. It can answer real-life field questions using live rover data such as soil moisture, temperature, humidity, pump status, obstacle distance, and current zone.
 
 ---
 
@@ -12,121 +12,94 @@ The rover can move through a prototype field, check soil moisture zone by zone, 
 
 ---
 
-## Table of Contents
+## Software Stack
 
-- [Overview](#overview)
-- [Main Features](#main-features)
-- [Main Innovation](#main-innovation)
-- [How the System Works](#how-the-system-works)
-- [AI Voice Assistant Architecture](#ai-voice-assistant-architecture)
-- [IoT Dashboard Architecture](#iot-dashboard-architecture)
-- [Hardware Components](#hardware-components)
-- [ESP32 Pin Connection](#esp32-pin-connection)
-- [Power Connection](#power-connection)
-- [Software Technologies](#software-technologies)
-- [Environment Variables](#environment-variables)
-- [How to Run the Web Application](#how-to-run-the-web-application)
-- [How to Upload ESP32 Code](#how-to-upload-esp32-code)
-- [Website Pages](#website-pages)
-- [API Routes](#api-routes)
-- [Example Voice Commands](#example-voice-commands)
-- [Demo Checklist](#demo-checklist)
-- [Troubleshooting](#troubleshooting)
-- [Team Members](#team-members)
-- [Future Improvements](#future-improvements)
-- [Conclusion](#conclusion)
+### Web Application
+
+- **Next.js** — full-stack web application framework
+- **React** — frontend UI
+- **TypeScript** — type-safe JavaScript
+- **Tailwind CSS** — UI styling
+- **Next.js API Routes** — backend API for rover data, AI agent, TTS, and robot voice communication
+
+### AI and Voice
+
+- **Groq API** — AI response generation
+- **Groq SDK** — connection between Next.js and Groq AI
+- **Google TTS API** — Bangla text-to-speech audio generation
+- **Browser Speech Recognition API** — laptop microphone voice input
+- **Bangla AI Assistant** — real-life field interaction assistant named **সেচবন্ধু**
+
+### ESP32 / Embedded System
+
+- **Arduino IDE** — ESP32 code upload and testing
+- **ESP32 Arduino Core** — ESP32 board support
+- **WiFi Library** — ESP32 Wi-Fi connection
+- **HTTPClient Library** — ESP32 API communication with Next.js server
+- **ArduinoJson** — JSON data creation and parsing
+- **DHT Sensor Library** — temperature and humidity reading
+- **ESP8266Audio Library** — MP3 audio playback on ESP32
+- **MAX98357A I2S Audio Output** — speaker output for AI voice
 
 ---
 
-## Overview
+## Hardware Used
 
-KrishiRover is built to demonstrate how robotics, IoT, and AI can support smart agriculture. The rover works as a field assistant. It moves through different zones, checks soil condition, detects obstacles, controls a water pump, and updates a live dashboard.
-
-A Bangla AI voice assistant named **সেচবন্ধু** allows the user to interact with the rover naturally. For example, a user can walk beside the rover and ask:
-
-- “সেচবন্ধু, আমি মাঠে হাঁটছি, সামনে কী অবস্থা?”
-- “এই জোনে পানি লাগবে?”
-- “মাটি শুকনা নাকি ভেজা?”
-- “তাপমাত্রা কত?”
-- “রোভার এখন কী করছে?”
-
-The assistant answers using live rover sensor data and project knowledge.
+- ESP32 Dev Module
+- L298N Motor Driver
+- 4 DC Motors
+- 3 HC-SR04 Ultrasonic Sensors
+- Capacitive Soil Moisture Sensor
+- DHT11 Temperature and Humidity Sensor
+- 5V Relay Module
+- Mini DC Water Pump
+- MAX98357A I2S Audio Amplifier
+- Speaker
+- Red LED
+- Green LED
+- Buck Converter
+- Battery / Power Bank
+- Jumper Wires
 
 ---
 
 ## Main Features
 
-- Autonomous rover movement from Zone A to Zone G and back
-- Soil moisture monitoring for dry/wet soil detection
-- Automatic irrigation only when dry soil is detected
-- Pump runs for a short fixed time to save water
-- Red LED indication when pump is running
-- Green LED indication when soil is wet
-- DHT11-based temperature and humidity monitoring
-- Three ultrasonic sensors for obstacle detection
-- Live IoT dashboard for real-time rover monitoring
-- Bangla AI voice assistant named **সেচবন্ধু**
+- Autonomous rover movement through field zones
+- Soil moisture detection
+- Dry/wet soil classification
+- Automatic irrigation for dry soil
+- Pump ON for a fixed time to reduce water waste
+- Red LED when pump is running
+- Green LED when soil is wet
+- Temperature and humidity monitoring
+- Obstacle detection using ultrasonic sensors
+- Live IoT dashboard
+- Bangla AI voice assistant
 - Laptop microphone based Bangla speech input
-- ESP32 speaker output using MAX98357A I2S amplifier
-- Real-life field interaction style AI response
-- Safety behavior: rover motor and pump stop while AI voice is speaking
-
----
-
-## Main Innovation
-
-The main innovation of KrishiRover is the integration of **autonomous field monitoring, smart irrigation, live IoT data, and Bangla AI voice interaction** in one low-cost farming rover prototype.
-
-Most simple irrigation systems only turn a pump on or off based on soil moisture. KrishiRover extends this idea by adding rover mobility, zone-based monitoring, obstacle awareness, real-time dashboard updates, and Bangla voice interaction.
-
-The system is designed to feel like a real field assistant. Instead of only showing sensor numbers, the AI assistant can explain the current field condition in simple Bangla. It can answer whether the soil is dry, whether water is needed, what the temperature is, what zone the rover is in, and whether there is an obstacle in front of the rover.
+- ESP32 speaker output using MAX98357A
+- Motor and pump stop during AI voice playback for safety
 
 ---
 
 ## How the System Works
 
-1. The rover starts from Zone A.
-2. It checks soil moisture at each zone.
-3. If the soil is wet:
-   - Green LED turns ON
-   - Pump remains OFF
-   - Rover continues moving
-4. If the soil is dry:
-   - Rover stops
-   - Red LED turns ON
-   - Pump turns ON for a short fixed time
-   - Pump turns OFF
-   - Rover continues to the next zone
-5. While moving, the rover checks obstacles using ultrasonic sensors.
-6. If an obstacle is close, the rover stops, turns, and avoids it.
-7. After reaching Zone G, the rover turns back and moves from G to A.
-8. The ESP32 sends live sensor data to the IoT dashboard.
-9. The Bangla AI assistant reads the latest rover data and answers user questions.
-10. When the AI voice is speaking, the rover motor and pump pause for safety.
+The ESP32 controls the physical rover. It reads soil moisture, temperature, humidity, and obstacle distance. It controls the motor driver, relay pump, LEDs, and speaker.
 
----
-
-## AI Voice Assistant Architecture
-
-The Bangla voice assistant is named **সেচবন্ধু**.
-
-The voice architecture works like this:
+The ESP32 sends live data to the Next.js server through:
 
 ```txt
-User speaks Bangla using laptop microphone
-        ↓
-Browser speech recognition converts speech to text
-        ↓
-Next.js /api/esp32-agent receives the question
-        ↓
-AI generates a Bangla answer using project knowledge + live rover data
-        ↓
-/api/bangla-tts converts the Bangla answer into audio
-        ↓
-/api/robot-speak stores the latest reply and TTS audio URL
-        ↓
-ESP32 polls /api/robot-speak
-        ↓
-ESP32 downloads the audio
-        ↓
-MAX98357A amplifier plays the answer through the speaker
+POST /api/rover-data
+
+
+node -v
+npm -v
+git --version
+git clone https://github.com/your-username/your-repository-name.git
+cd your-repository-name
+npm install
+npm install next react react-dom groq-sdk google-tts-api
+npm install -D typescript tailwindcss
+rmdir /s /q node_modules
+del package-lock.json
+npm install
