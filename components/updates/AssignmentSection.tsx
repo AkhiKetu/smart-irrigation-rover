@@ -16,14 +16,14 @@ const assignments = [
     file: "/Assignments/Robotics-Mid-Assignment.pdf",
   },
 
-//   {
-//     id: 3,
-//     title: "Assignment 3",
-//     description:
-//       "Krishi Rover development, smart irrigation, obstacle detection, and IoT monitoring.",
-//     date: "July 2026",
-//     file: "/Assignments/Assignment-3.pdf",
-//   },
+  {
+    id: 3,
+    title: "Assignment 3",
+    description:
+      "Final Assignment for the robotics course, which includes the final project submission and report. The assignment covers the design, implementation, and testing of the Krishi Rover, including its hardware and software components, as well as the final presentation and demonstration of the project.",
+    date: "August 2026",
+    file: "/Assignments/Robotics-Final-Assignment-2210952.pdf",
+  },
 ];
 
 export function AssignmentSection() {
@@ -51,7 +51,7 @@ export function AssignmentSection() {
               key={assignment.id}
               className="group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-emerald-300 hover:shadow-xl"
             >
-              <div className="flex h-44 items-center justify-center bg-gradient-to-br from-emerald-50 to-teal-50">
+              <div className="flex h-44 items-center justify-center bg-linear-to-br from-emerald-50 to-teal-50">
                 <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-white shadow-md">
                   <svg
                     className="h-10 w-10 text-red-500"
