@@ -90,8 +90,6 @@ The ESP32 sends live data to the Next.js server through:
 
 ```txt
 POST /api/rover-data
-
-
 node -v
 npm -v
 git --version
