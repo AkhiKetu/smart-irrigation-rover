@@ -100,6 +100,12 @@ export function ResearchSection() {
                               sub: "Details about the implementation of the AI agent in the project.",
 
                         },
+                        {
+                              href: "/Documents/Final-Report-Akhi-Ketu-Chakma.pdf",
+                              label: "Final Report",
+                              sub: "The final report of the project, including all the findings and conclusions.",
+
+                        },
                           ].map(({ href, label, sub }) => (
                             <a
                               key={label}
